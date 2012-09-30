@@ -477,6 +477,29 @@
 		5FF1FF3715BF21FF00EF2CE4 /* GRKServiceQueryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3C2D0915B9F945008D894A /* GRKServiceQueryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF1FF3815BF21FF00EF2CE4 /* GRKTokenStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3C2D0B15B9F945008D894A /* GRKTokenStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF1FF3915BF21FF00EF2CE4 /* GRKTokenStoreUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3C2D0D15B9F945008D894A /* GRKTokenStoreUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6DE2FC7116190CB700B326D2 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6116190CB700B326D2 /* NSData+Base64.h */; };
+		6DE2FC7216190CB700B326D2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6216190CB700B326D2 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
+		6DE2FC7316190CB700B326D2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6216190CB700B326D2 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE2FC7416190CB700B326D2 /* OAuth+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6316190CB700B326D2 /* OAuth+Additions.h */; };
+		6DE2FC7516190CB700B326D2 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6416190CB700B326D2 /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
+		6DE2FC7616190CB700B326D2 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6416190CB700B326D2 /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE2FC7716190CB700B326D2 /* OAuthCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6516190CB700B326D2 /* OAuthCore.h */; };
+		6DE2FC7816190CB700B326D2 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6616190CB700B326D2 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
+		6DE2FC7916190CB700B326D2 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6616190CB700B326D2 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE2FC7A16190CB700B326D2 /* PXAPI-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6716190CB700B326D2 /* PXAPI-Prefix.pch */; };
+		6DE2FC7B16190CB700B326D2 /* PXAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6816190CB700B326D2 /* PXAPI.h */; };
+		6DE2FC7C16190CB700B326D2 /* PXAPIHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6916190CB700B326D2 /* PXAPIHelper.h */; };
+		6DE2FC7D16190CB700B326D2 /* PXAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6A16190CB700B326D2 /* PXAPIHelper.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
+		6DE2FC7E16190CB700B326D2 /* PXAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6A16190CB700B326D2 /* PXAPIHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE2FC7F16190CB700B326D2 /* PXAPIHelper+Auth.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6B16190CB700B326D2 /* PXAPIHelper+Auth.h */; };
+		6DE2FC8016190CB700B326D2 /* PXAPIHelper+Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6C16190CB700B326D2 /* PXAPIHelper+Auth.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
+		6DE2FC8116190CB700B326D2 /* PXAPIHelper+Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6C16190CB700B326D2 /* PXAPIHelper+Auth.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE2FC8216190CB700B326D2 /* PXRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6D16190CB700B326D2 /* PXRequest.h */; };
+		6DE2FC8316190CB700B326D2 /* PXRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6E16190CB700B326D2 /* PXRequest.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
+		6DE2FC8416190CB700B326D2 /* PXRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6E16190CB700B326D2 /* PXRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE2FC8516190CB700B326D2 /* PXRequest+Creation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6F16190CB700B326D2 /* PXRequest+Creation.h */; };
+		6DE2FC8616190CB700B326D2 /* PXRequest+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
+		6DE2FC8716190CB700B326D2 /* PXRequest+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -845,6 +868,22 @@
 		5FEE9DEB15DF6CC900C44501 /* GRKPicasaQueriesQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRKPicasaQueriesQueue.h; sourceTree = "<group>"; };
 		5FEE9DEC15DF6CC900C44501 /* GRKPicasaQueriesQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRKPicasaQueriesQueue.m; sourceTree = "<group>"; };
 		5FEE9DF115E11AF400C44501 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = grabKit/externalLibraries/Facebook/FacebookSDK.framework; sourceTree = "<group>"; };
+		6DE2FC6116190CB700B326D2 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		6DE2FC6216190CB700B326D2 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		6DE2FC6316190CB700B326D2 /* OAuth+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAuth+Additions.h"; sourceTree = "<group>"; };
+		6DE2FC6416190CB700B326D2 /* OAuth+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+Additions.m"; sourceTree = "<group>"; };
+		6DE2FC6516190CB700B326D2 /* OAuthCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthCore.h; sourceTree = "<group>"; };
+		6DE2FC6616190CB700B326D2 /* OAuthCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthCore.m; sourceTree = "<group>"; };
+		6DE2FC6716190CB700B326D2 /* PXAPI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXAPI-Prefix.pch"; path = "PXAPI/PXAPI-Prefix.pch"; sourceTree = "<group>"; };
+		6DE2FC6816190CB700B326D2 /* PXAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXAPI.h; path = PXAPI/PXAPI.h; sourceTree = "<group>"; };
+		6DE2FC6916190CB700B326D2 /* PXAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXAPIHelper.h; path = PXAPI/PXAPIHelper.h; sourceTree = "<group>"; };
+		6DE2FC6A16190CB700B326D2 /* PXAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXAPIHelper.m; path = PXAPI/PXAPIHelper.m; sourceTree = "<group>"; };
+		6DE2FC6B16190CB700B326D2 /* PXAPIHelper+Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXAPIHelper+Auth.h"; path = "PXAPI/PXAPIHelper+Auth.h"; sourceTree = "<group>"; };
+		6DE2FC6C16190CB700B326D2 /* PXAPIHelper+Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PXAPIHelper+Auth.m"; path = "PXAPI/PXAPIHelper+Auth.m"; sourceTree = "<group>"; };
+		6DE2FC6D16190CB700B326D2 /* PXRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXRequest.h; path = PXAPI/PXRequest.h; sourceTree = "<group>"; };
+		6DE2FC6E16190CB700B326D2 /* PXRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXRequest.m; path = PXAPI/PXRequest.m; sourceTree = "<group>"; };
+		6DE2FC6F16190CB700B326D2 /* PXRequest+Creation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXRequest+Creation.h"; path = "PXAPI/PXRequest+Creation.h"; sourceTree = "<group>"; };
+		6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PXRequest+Creation.m"; path = "PXAPI/PXRequest+Creation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -990,6 +1029,7 @@
 		5F3C2B8D15B9F945008D894A /* externalLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				6DE2FC5F16190CA100B326D2 /* 500px */,
 				5F3C2B8E15B9F945008D894A /* Facebook */,
 				5F3C2BB415B9F945008D894A /* FlickR */,
 				5F3C2BC415B9F945008D894A /* Picasa */,
@@ -1612,6 +1652,38 @@
 			path = configuration;
 			sourceTree = "<group>";
 		};
+		6DE2FC5F16190CA100B326D2 /* 500px */ = {
+			isa = PBXGroup;
+			children = (
+				6DE2FC6016190CB700B326D2 /* ABOAuthCore */,
+				6DE2FC6716190CB700B326D2 /* PXAPI-Prefix.pch */,
+				6DE2FC6816190CB700B326D2 /* PXAPI.h */,
+				6DE2FC6916190CB700B326D2 /* PXAPIHelper.h */,
+				6DE2FC6A16190CB700B326D2 /* PXAPIHelper.m */,
+				6DE2FC6B16190CB700B326D2 /* PXAPIHelper+Auth.h */,
+				6DE2FC6C16190CB700B326D2 /* PXAPIHelper+Auth.m */,
+				6DE2FC6D16190CB700B326D2 /* PXRequest.h */,
+				6DE2FC6E16190CB700B326D2 /* PXRequest.m */,
+				6DE2FC6F16190CB700B326D2 /* PXRequest+Creation.h */,
+				6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */,
+			);
+			name = 500px;
+			sourceTree = "<group>";
+		};
+		6DE2FC6016190CB700B326D2 /* ABOAuthCore */ = {
+			isa = PBXGroup;
+			children = (
+				6DE2FC6116190CB700B326D2 /* NSData+Base64.h */,
+				6DE2FC6216190CB700B326D2 /* NSData+Base64.m */,
+				6DE2FC6316190CB700B326D2 /* OAuth+Additions.h */,
+				6DE2FC6416190CB700B326D2 /* OAuth+Additions.m */,
+				6DE2FC6516190CB700B326D2 /* OAuthCore.h */,
+				6DE2FC6616190CB700B326D2 /* OAuthCore.m */,
+			);
+			name = ABOAuthCore;
+			path = PXAPI/ABOAuthCore;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1772,6 +1844,15 @@
 				5F28F80315CE733300E0E64D /* GRKFacebookBatchQuery.h in Headers */,
 				5F0167B415D9732A003C3C1C /* GRKFlickrQueriesQueue.h in Headers */,
 				5FEE9DED15DF6CC900C44501 /* GRKPicasaQueriesQueue.h in Headers */,
+				6DE2FC7116190CB700B326D2 /* NSData+Base64.h in Headers */,
+				6DE2FC7416190CB700B326D2 /* OAuth+Additions.h in Headers */,
+				6DE2FC7716190CB700B326D2 /* OAuthCore.h in Headers */,
+				6DE2FC7A16190CB700B326D2 /* PXAPI-Prefix.pch in Headers */,
+				6DE2FC7B16190CB700B326D2 /* PXAPI.h in Headers */,
+				6DE2FC7C16190CB700B326D2 /* PXAPIHelper.h in Headers */,
+				6DE2FC7F16190CB700B326D2 /* PXAPIHelper+Auth.h in Headers */,
+				6DE2FC8216190CB700B326D2 /* PXRequest.h in Headers */,
+				6DE2FC8516190CB700B326D2 /* PXRequest+Creation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2101,6 +2182,13 @@
 				5F0167AE15D2D796003C3C1C /* GRKDemoAlbumsListCell.m in Sources */,
 				5F0167B515D9732A003C3C1C /* GRKFlickrQueriesQueue.m in Sources */,
 				5FEE9DEE15DF6CC900C44501 /* GRKPicasaQueriesQueue.m in Sources */,
+				6DE2FC7216190CB700B326D2 /* NSData+Base64.m in Sources */,
+				6DE2FC7516190CB700B326D2 /* OAuth+Additions.m in Sources */,
+				6DE2FC7816190CB700B326D2 /* OAuthCore.m in Sources */,
+				6DE2FC7D16190CB700B326D2 /* PXAPIHelper.m in Sources */,
+				6DE2FC8016190CB700B326D2 /* PXAPIHelper+Auth.m in Sources */,
+				6DE2FC8316190CB700B326D2 /* PXRequest.m in Sources */,
+				6DE2FC8616190CB700B326D2 /* PXRequest+Creation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2261,6 +2349,13 @@
 				5F28F80515CE733300E0E64D /* GRKFacebookBatchQuery.m in Sources */,
 				5F0167B615D9732A003C3C1C /* GRKFlickrQueriesQueue.m in Sources */,
 				5FEE9DEF15DF6CC900C44501 /* GRKPicasaQueriesQueue.m in Sources */,
+				6DE2FC7316190CB700B326D2 /* NSData+Base64.m in Sources */,
+				6DE2FC7616190CB700B326D2 /* OAuth+Additions.m in Sources */,
+				6DE2FC7916190CB700B326D2 /* OAuthCore.m in Sources */,
+				6DE2FC7E16190CB700B326D2 /* PXAPIHelper.m in Sources */,
+				6DE2FC8116190CB700B326D2 /* PXAPIHelper+Auth.m in Sources */,
+				6DE2FC8416190CB700B326D2 /* PXRequest.m in Sources */,
+				6DE2FC8716190CB700B326D2 /* PXRequest+Creation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2462,6 +2557,10 @@
 		5FD399A015BF1E2B0063542C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				DSTROOT = /tmp/GrabKitLib.dst;
 				EXECUTABLE_PREFIX = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2475,12 +2574,17 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s armv6";
 			};
 			name = Debug;
 		};
 		5FD399A115BF1E2B0063542C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				DSTROOT = /tmp/GrabKitLib.dst;
 				EXECUTABLE_PREFIX = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2494,6 +2598,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s armv6";
 			};
 			name = Release;
 		};
