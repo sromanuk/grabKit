@@ -500,6 +500,9 @@
 		6DE2FC8516190CB700B326D2 /* PXRequest+Creation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6F16190CB700B326D2 /* PXRequest+Creation.h */; };
 		6DE2FC8616190CB700B326D2 /* PXRequest+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
 		6DE2FC8716190CB700B326D2 /* PXRequest+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE2FC8B161AD59800B326D2 /* GKCachingObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC89161AD59800B326D2 /* GKCachingObject.h */; };
+		6DE2FC8C161AD59800B326D2 /* GKCachingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC8A161AD59800B326D2 /* GKCachingObject.m */; };
+		6DE2FC8D161AD59800B326D2 /* GKCachingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC8A161AD59800B326D2 /* GKCachingObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -884,6 +887,8 @@
 		6DE2FC6E16190CB700B326D2 /* PXRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXRequest.m; path = PXAPI/PXRequest.m; sourceTree = "<group>"; };
 		6DE2FC6F16190CB700B326D2 /* PXRequest+Creation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXRequest+Creation.h"; path = "PXAPI/PXRequest+Creation.h"; sourceTree = "<group>"; };
 		6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PXRequest+Creation.m"; path = "PXAPI/PXRequest+Creation.m"; sourceTree = "<group>"; };
+		6DE2FC89161AD59800B326D2 /* GKCachingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCachingObject.h; sourceTree = "<group>"; };
+		6DE2FC8A161AD59800B326D2 /* GKCachingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCachingObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -970,6 +975,7 @@
 		5F3C2B5415B9F7FC008D894A /* grabKit */ = {
 			isa = PBXGroup;
 			children = (
+				6DE2FC88161AD57A00B326D2 /* Cache */,
 				5F3C2DB415B9FC5F008D894A /* GrabKitDemoAppDelegate.h */,
 				5F3C2DB515B9FC5F008D894A /* GrabKitDemoAppDelegate.m */,
 				5F3C2CA015B9F945008D894A /* grabKitDemo */,
@@ -1684,6 +1690,15 @@
 			path = PXAPI/ABOAuthCore;
 			sourceTree = "<group>";
 		};
+		6DE2FC88161AD57A00B326D2 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				6DE2FC89161AD59800B326D2 /* GKCachingObject.h */,
+				6DE2FC8A161AD59800B326D2 /* GKCachingObject.m */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1853,6 +1868,7 @@
 				6DE2FC7F16190CB700B326D2 /* PXAPIHelper+Auth.h in Headers */,
 				6DE2FC8216190CB700B326D2 /* PXRequest.h in Headers */,
 				6DE2FC8516190CB700B326D2 /* PXRequest+Creation.h in Headers */,
+				6DE2FC8B161AD59800B326D2 /* GKCachingObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2189,6 +2205,7 @@
 				6DE2FC8016190CB700B326D2 /* PXAPIHelper+Auth.m in Sources */,
 				6DE2FC8316190CB700B326D2 /* PXRequest.m in Sources */,
 				6DE2FC8616190CB700B326D2 /* PXRequest+Creation.m in Sources */,
+				6DE2FC8C161AD59800B326D2 /* GKCachingObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2356,6 +2373,7 @@
 				6DE2FC8116190CB700B326D2 /* PXAPIHelper+Auth.m in Sources */,
 				6DE2FC8416190CB700B326D2 /* PXRequest.m in Sources */,
 				6DE2FC8716190CB700B326D2 /* PXRequest+Creation.m in Sources */,
+				6DE2FC8D161AD59800B326D2 /* GKCachingObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
