@@ -63,7 +63,7 @@ static const NSInteger  GK_MAXIMUM_OBJECTS_SIZE_VALUE = 150 * 1024 * 1024; // 15
     NSMutableDictionary * cached_object_template = [[NSMutableDictionary alloc] initWithCapacity:25];
     
     [cached_object_template setObject:[NSNumber numberWithInteger:0]
-                               forKey:GK_TOTAL_SIZE_KEY];
+                               forKey:GK_TOTAL_OBJECTS_SIZE_KEY];
     
     [cached_object_template setObject:[NSMutableArray arrayWithCapacity:10]
                                forKey:GK_CACHED_OBJECTS_KEY];
