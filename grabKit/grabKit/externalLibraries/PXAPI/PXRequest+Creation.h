@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 500px. All rights reserved.
 //
 
-#import <PXAPI/PXAPI.h>
+#import "PXAPI.h"
 #import "PXRequest.h"
 
 @interface PXRequest (Creation)

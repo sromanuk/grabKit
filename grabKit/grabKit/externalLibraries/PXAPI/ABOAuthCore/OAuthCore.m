@@ -13,7 +13,7 @@
 static NSInteger SortParameter(NSString *key1, NSString *key2, void *context) {
     NSComparisonResult r = [key1 compare:key2];
     if(r == NSOrderedSame) { // compare by value in this case
-        NSDictionary *dict = (NSDictionary *)context;
+        NSDictionary *dict = (__bridge NSDictionary *)context;
         NSString *value1 = [dict objectForKey:key1];
         NSString *value2 = [dict objectForKey:key2];
         return [value1 compare:value2];
@@ -48,14 +48,14 @@ NSString *OAuthorizationHeader(NSURL *url, NSString *method, NSData *body, NSStr
     NSDictionary *additionalQueryParameters = [[url query] ab_parseURLQueryString];
     NSDictionary *additionalBodyParameters = nil;
     if(body) {
-        NSString *string = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];
+        NSString *string = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
         if(string) {
             additionalBodyParameters = [string ab_parseURLQueryString];
         }
     }
 
     // combine all parameters
-    NSMutableDictionary *parameters = [[oAuthAuthorizationParameters mutableCopy] autorelease];
+    NSMutableDictionary *parameters = [oAuthAuthorizationParameters mutableCopy];
     if(additionalQueryParameters) [parameters addEntriesFromDictionary:additionalQueryParameters];
     if(additionalBodyParameters) [parameters addEntriesFromDictionary:additionalBodyParameters];
 
@@ -95,7 +95,7 @@ NSString *OAuthorizationHeader(NSURL *url, NSString *method, NSData *body, NSStr
     NSData *signature = HMAC_SHA1(signatureBaseString, key);
     NSString *base64Signature = [signature base64EncodedString];
 
-    NSMutableDictionary *authorizationHeaderDictionary = [[oAuthAuthorizationParameters mutableCopy] autorelease];
+    NSMutableDictionary *authorizationHeaderDictionary = [oAuthAuthorizationParameters mutableCopy];
     [authorizationHeaderDictionary setObject:base64Signature forKey:@"oauth_signature"];
 
     NSMutableArray *authorizationHeaderItems = [NSMutableArray array];
