@@ -17,6 +17,7 @@
 
 @interface GKCachingObject : NSObject {
     NSMutableDictionary * _cacheingObject;
+    NSOperationQueue * _downloadsOperationQueue;
 }
 
 + (GKCachingObject *) instance;
