@@ -23,10 +23,6 @@ static GKCachingObject * _instance = nil;
 static NSString * GK_PATH_TO_STORAGE = nil;
 static NSString * GK_PATH_TO_STORAGE_FILE = nil;
 
-static NSURLConnection * theConnection = nil;
-static NSMutableData * fileData = nil;
-
-
 // cached object's structure constants
 static const NSString * GK_TOTAL_OBJECTS_SIZE_KEY = @"total object's size";
 static const NSString * GK_MAXIMUM_OBJECTS_SIZE_KEY = @"maximum object's size";
