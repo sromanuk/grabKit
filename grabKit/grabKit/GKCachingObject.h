@@ -22,4 +22,8 @@
 
 + (GKCachingObject *) instance;
 
+- (BOOL) addFileFromURL: (NSURL *) url;
+- (UIImage *) getCachedImage;
+- (NSArray *) getArrayOfCachedImages: (NSUInteger) count;
+
 @end
