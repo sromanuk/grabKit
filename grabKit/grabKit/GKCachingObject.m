@@ -113,35 +113,23 @@ void (^GrabberServiceBlock_500PX) ();
 - (void) __implementGrabberBlocks__ {
     
     GrabberServiceBlock_Instagram = ^{
-
-        Class grabberClass = NSClassFromString(@"Instagram");
-        
-        id grabber = nil;
-        @try {
-            grabber = [[grabberClass alloc] init];
-        }
-        @catch (NSException *exception) {
-            
-            NSLog(@" exception : %@", exception);
-        }
-        
-        [self __loadPopularPhotoForServiceName__:grabber];
+        [self __loadPopularPhotoForServiceName__:@"GRKInstagramGrabber"];
     };
     
     GrabberServiceBlock_Facebook = ^{
-        
+        [self __loadPopularPhotoForServiceName__:@"GRKFacebookGrabber"];
     };
     
     GrabberServiceBlock_Gallery = ^{
-        
+        [self __loadPopularPhotoForServiceName__:@"GRKDeviceGrabber"];
     };
     
     GrabberServiceBlock_Flickr = ^{
-        
+        [self __loadPopularPhotoForServiceName__:@"GRKFlickrGrabber"];
     };
     
     GrabberServiceBlock_Picasa = ^{
-        
+        [self __loadPopularPhotoForServiceName__:@"GRKPicasaGrabber"];
     };
     
     GrabberServiceBlock_500PX = ^{
