@@ -8,17 +8,27 @@
 
 #import "GKCachingObject.h"
 
+#import "PXAPI.h"
+#import "GrabKit.h"
+
 @interface GKCachingObject (Private)
 
 - (id) __init__;
 - (NSMutableDictionary *) __createCachedObjectStructure__;
+- (void) __timerJob__: (NSTimer *) timer;
+- (void) __implementGrabberBlocks__;
 
 @end
 
 
 @implementation GKCachingObject
 
+typedef void (^GrabberServiceBlock)();
+
+
 static GKCachingObject * _instance = nil;
+static NSTimer * _downloadTimer = nil;
+static GrabberServiceBlock _initializedServicesCache[GK_ENUM_MAX_VALUE]; // store not objects but blocks here. and invoke 'em.
 
 static NSString * GK_PATH_TO_STORAGE = nil;
 static NSString * GK_PATH_TO_STORAGE_FILE = nil;
@@ -26,11 +36,25 @@ static NSString * GK_PATH_TO_STORAGE_FILE = nil;
 static const NSInteger GK_CACHE_EMPTY = -1;
 static NSInteger _nextCacheIndex = GK_CACHE_EMPTY;
 
+
 // cached object's structure constants
 static const NSString * GK_TOTAL_OBJECTS_SIZE_KEY = @"total object's size";
 static const NSString * GK_MAXIMUM_OBJECTS_SIZE_KEY = @"maximum object's size";
 static const NSString * GK_CACHED_OBJECTS_KEY = @"cached objects";
 static const NSInteger  GK_MAXIMUM_OBJECTS_SIZE_VALUE = 150 * 1024 * 1024; // 150Mb for cache size should be enough. For now.
+
+
+static NSObject * _lockMutex = nil;
+
+static const NSTimeInterval GL_TIMER_INTERVAL = 10.0;
+
+void (^GrabberServiceBlock_Instagram) ();
+void (^GrabberServiceBlock_Facebook) ();
+void (^GrabberServiceBlock_Gallery) ();
+void (^GrabberServiceBlock_Flickr) ();
+void (^GrabberServiceBlock_Picasa) ();
+void (^GrabberServiceBlock_500PX) ();
+
 
 
 + (GKCachingObject *) instance {
@@ -57,12 +81,130 @@ static const NSInteger  GK_MAXIMUM_OBJECTS_SIZE_VALUE = 150 * 1024 * 1024; // 15
             NSLog(@"storage file could not be loaded (%@)", GK_PATH_TO_STORAGE_FILE);
             
             _cacheingObject = [self __createCachedObjectStructure__];
+            
+            _downloadTimer = [NSTimer timerWithTimeInterval:GL_TIMER_INTERVAL
+                                                     target:self
+                                                   selector:@selector(__timerJob__:)
+                                                   userInfo:nil
+                                                    repeats:YES];
+            [[NSRunLoop currentRunLoop] addTimer:_downloadTimer forMode:NSDefaultRunLoopMode];
+            
+            _lockMutex = [[NSObject alloc] init];
         }
+        
+        [self __implementGrabberBlocks__];
         
         _downloadsOperationQueue = [[NSOperationQueue alloc] init];
     }
     
     return self;
+}
+
+- (void) __implementGrabberBlocks__ {
+    
+    GrabberServiceBlock_Instagram = ^{
+        
+    };
+    
+    GrabberServiceBlock_Facebook = ^{
+        
+    };
+    
+    GrabberServiceBlock_Gallery = ^{
+        
+    };
+    
+    GrabberServiceBlock_Flickr = ^{
+        
+    };
+    
+    GrabberServiceBlock_Picasa = ^{
+        
+    };
+    
+    GrabberServiceBlock_500PX = ^{
+        static NSInteger pageNumber = 1;
+        
+        PXAPIHelper * pxapi = [[PXAPIHelper alloc] init];
+        
+        NSURLRequest * request = [pxapi urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular
+                                                   resultsPerPage:10
+                                                             page:1];
+        
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:_downloadsOperationQueue
+                               completionHandler:^(NSURLResponse * response, NSData * data, NSError * error) {
+                                   
+                               }];
+        
+        pageNumber++;
+    };
+}
+
+- (void) __timerJob__: (NSTimer *) timer {
+    @synchronized (_lockMutex) {
+        for (int i = 0; i < GK_ENUM_MAX_VALUE; i++) {
+            if (_initializedServicesCache[i] != 0) {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,
+                                                         (unsigned long)NULL), _initializedServicesCache[i]);
+            }
+        }
+    }
+}
+
+- (void) addGrabbingService: (GK_IMAGE_SERVICE_TYPE) serviceName {
+    if (serviceName > GK_ENUM_MAX_VALUE) {
+        return ;
+    }
+    
+    @synchronized (_lockMutex) {
+        if (_initializedServicesCache[serviceName] != 0) {
+            return ;
+        }
+        
+        switch (serviceName) {
+            case GK_SERVICE_500PX: {
+                _initializedServicesCache[serviceName] = GrabberServiceBlock_500PX;
+                break ;
+            }
+            
+            case GK_SERVICE_FACEBOOK: {
+                _initializedServicesCache[serviceName] = GrabberServiceBlock_Facebook;
+                break ;
+            }
+                
+            case GK_SERVICE_FLICKR: {
+                _initializedServicesCache[serviceName] = GrabberServiceBlock_Flickr;
+                break ;
+            }
+                
+            case GK_SERVICE_GALLERY: {
+                _initializedServicesCache[serviceName] = GrabberServiceBlock_Gallery;
+                break ;
+            }
+                
+            case GK_SERVICE_INSTAGRAM: {
+                _initializedServicesCache[serviceName] = GrabberServiceBlock_Instagram;
+                break ;
+            }
+                
+            case GK_SERVICE_PICASA: {
+                _initializedServicesCache[serviceName] = GrabberServiceBlock_Picasa;
+                break ;
+            }
+                
+            default:
+                break ;
+        }
+    }
+}
+
+- (void) removeGrabbingService: (GK_IMAGE_SERVICE_TYPE) serviceName {
+    @synchronized (_lockMutex) {
+        if (serviceName < GK_ENUM_MAX_VALUE) {
+            _initializedServicesCache[serviceName] = 0;
+        }
+    }
 }
 
 - (NSMutableDictionary *) __createCachedObjectStructure__ {

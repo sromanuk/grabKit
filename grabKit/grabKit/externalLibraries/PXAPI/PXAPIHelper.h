@@ -94,6 +94,7 @@ typedef enum : NSInteger
 
 @interface PXAPIHelper : NSObject
 
+- (id) init;
 - (id)initWithHost:(NSString *)host
        consumerKey:(NSString *)consumerKey
     consumerSecret:(NSString *)consumerSecret;

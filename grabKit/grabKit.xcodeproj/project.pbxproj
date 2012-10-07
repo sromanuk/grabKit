@@ -486,7 +486,6 @@
 		6DE2FC7716190CB700B326D2 /* OAuthCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6516190CB700B326D2 /* OAuthCore.h */; };
 		6DE2FC7816190CB700B326D2 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6616190CB700B326D2 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
 		6DE2FC7916190CB700B326D2 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6616190CB700B326D2 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6DE2FC7A16190CB700B326D2 /* PXAPI-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6716190CB700B326D2 /* PXAPI-Prefix.pch */; };
 		6DE2FC7B16190CB700B326D2 /* PXAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6816190CB700B326D2 /* PXAPI.h */; };
 		6DE2FC7C16190CB700B326D2 /* PXAPIHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6916190CB700B326D2 /* PXAPIHelper.h */; };
 		6DE2FC7D16190CB700B326D2 /* PXAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6A16190CB700B326D2 /* PXAPIHelper.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
@@ -877,7 +876,6 @@
 		6DE2FC6416190CB700B326D2 /* OAuth+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+Additions.m"; sourceTree = "<group>"; };
 		6DE2FC6516190CB700B326D2 /* OAuthCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthCore.h; sourceTree = "<group>"; };
 		6DE2FC6616190CB700B326D2 /* OAuthCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthCore.m; sourceTree = "<group>"; };
-		6DE2FC6716190CB700B326D2 /* PXAPI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXAPI-Prefix.pch"; path = "PXAPI/PXAPI-Prefix.pch"; sourceTree = "<group>"; };
 		6DE2FC6816190CB700B326D2 /* PXAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXAPI.h; path = PXAPI/PXAPI.h; sourceTree = "<group>"; };
 		6DE2FC6916190CB700B326D2 /* PXAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXAPIHelper.h; path = PXAPI/PXAPIHelper.h; sourceTree = "<group>"; };
 		6DE2FC6A16190CB700B326D2 /* PXAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXAPIHelper.m; path = PXAPI/PXAPIHelper.m; sourceTree = "<group>"; };
@@ -1662,7 +1660,6 @@
 			isa = PBXGroup;
 			children = (
 				6DE2FC6016190CB700B326D2 /* ABOAuthCore */,
-				6DE2FC6716190CB700B326D2 /* PXAPI-Prefix.pch */,
 				6DE2FC6816190CB700B326D2 /* PXAPI.h */,
 				6DE2FC6916190CB700B326D2 /* PXAPIHelper.h */,
 				6DE2FC6A16190CB700B326D2 /* PXAPIHelper.m */,
@@ -1862,7 +1859,6 @@
 				6DE2FC7116190CB700B326D2 /* NSData+Base64.h in Headers */,
 				6DE2FC7416190CB700B326D2 /* OAuth+Additions.h in Headers */,
 				6DE2FC7716190CB700B326D2 /* OAuthCore.h in Headers */,
-				6DE2FC7A16190CB700B326D2 /* PXAPI-Prefix.pch in Headers */,
 				6DE2FC7B16190CB700B326D2 /* PXAPI.h in Headers */,
 				6DE2FC7C16190CB700B326D2 /* PXAPIHelper.h in Headers */,
 				6DE2FC7F16190CB700B326D2 /* PXAPIHelper+Auth.h in Headers */,

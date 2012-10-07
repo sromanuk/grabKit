@@ -10,6 +10,9 @@
 #import "OAuthCore.h"
 #import "OAuth+Additions.h"
 
+#define PXAPI_CONSUMER_KEY @""
+#define PXAPI_CONSUMER_SECRET @""
+
 @implementation PXAPIHelper
 {
     PXAPIHelperMode authMode;
@@ -23,6 +26,20 @@
 
 @synthesize authToken=_authToken;
 @synthesize authSecret=_authSecret;
+
+
+- (id) init {
+    self = [super init];
+    if (self) {
+        _host = nil;
+        
+        _consumerKey = PXAPI_CONSUMER_KEY;
+        _consumerSecret = PXAPI_CONSUMER_SECRET;
+        
+        [self commonInit];
+    }
+    return self;
+}
 
 - (id)initWithHost:(NSString *)host
        consumerKey:(NSString *)consumerKey
