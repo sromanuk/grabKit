@@ -10,6 +10,11 @@
 
 #import "PXAPI.h"
 #import "GrabKit.h"
+#import "GRKServiceGrabber.h"
+#import "GRKAlbum.h"
+#import "GRKImage.h"
+#import "GRKPhoto.h"
+
 
 @interface GKCachingObject (Private)
 
@@ -17,6 +22,7 @@
 - (NSMutableDictionary *) __createCachedObjectStructure__;
 - (void) __timerJob__: (NSTimer *) timer;
 - (void) __implementGrabberBlocks__;
+- (void) __loadPopularPhotoForServiceGrabber__: (GRKServiceGrabber *) _grabber;
 
 @end
 
@@ -29,6 +35,7 @@ typedef void (^GrabberServiceBlock)();
 static GKCachingObject * _instance = nil;
 static NSTimer * _downloadTimer = nil;
 static GrabberServiceBlock _initializedServicesCache[GK_ENUM_MAX_VALUE]; // store not objects but blocks here. and invoke 'em.
+static NSMutableDictionary * _grabberObjects = nil;
 
 static NSString * GK_PATH_TO_STORAGE = nil;
 static NSString * GK_PATH_TO_STORAGE_FILE = nil;
@@ -42,6 +49,8 @@ static const NSString * GK_TOTAL_OBJECTS_SIZE_KEY = @"total object's size";
 static const NSString * GK_MAXIMUM_OBJECTS_SIZE_KEY = @"maximum object's size";
 static const NSString * GK_CACHED_OBJECTS_KEY = @"cached objects";
 static const NSInteger  GK_MAXIMUM_OBJECTS_SIZE_VALUE = 150 * 1024 * 1024; // 150Mb for cache size should be enough. For now.
+
+static const NSUInteger kNumberOfElementsPerPage = 5;
 
 
 static NSObject * _lockMutex = nil;
@@ -90,6 +99,7 @@ void (^GrabberServiceBlock_500PX) ();
             [[NSRunLoop currentRunLoop] addTimer:_downloadTimer forMode:NSDefaultRunLoopMode];
             
             _lockMutex = [[NSObject alloc] init];
+            _grabberObjects = [[NSMutableDictionary alloc] initWithCapacity:5];
         }
         
         [self __implementGrabberBlocks__];
@@ -103,7 +113,19 @@ void (^GrabberServiceBlock_500PX) ();
 - (void) __implementGrabberBlocks__ {
     
     GrabberServiceBlock_Instagram = ^{
+
+        Class grabberClass = NSClassFromString(@"Instagram");
         
+        id grabber = nil;
+        @try {
+            grabber = [[grabberClass alloc] init];
+        }
+        @catch (NSException *exception) {
+            
+            NSLog(@" exception : %@", exception);
+        }
+        
+        [self __loadPopularPhotoForServiceName__:grabber];
     };
     
     GrabberServiceBlock_Facebook = ^{
@@ -128,7 +150,7 @@ void (^GrabberServiceBlock_500PX) ();
         PXAPIHelper * pxapi = [[PXAPIHelper alloc] init];
         
         NSURLRequest * request = [pxapi urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular
-                                                   resultsPerPage:10
+                                                   resultsPerPage:kNumberOfElementsPerPage
                                                              page:1];
         
         [NSURLConnection sendAsynchronousRequest:request
@@ -139,6 +161,77 @@ void (^GrabberServiceBlock_500PX) ();
         
         pageNumber++;
     };
+}
+
+- (void) __loadPopularPhotoForServiceName__: (NSString *) serviceName {
+    if (serviceName == nil || [serviceName isEqualToString:@""]) {
+        return ;
+    }
+    
+    static NSInteger _lastLoadedPageIndex = 1;
+    static NSUInteger _lastLoadedPhotosPageIndex = 1;
+    
+    NSObject<GRKServiceGrabberProtocol> * _grabber = [_grabberObjects objectForKey:serviceName];
+    
+    if (_grabber == nil) {
+        Class grabberClass = NSClassFromString(serviceName);
+        
+        @try {
+            _grabber = [[grabberClass alloc] init];
+            [_grabberObjects setObject:_grabber
+                                forKey:serviceName];
+        } @catch (NSException *exception) {
+            NSLog(@" exception : %@", exception);
+            return ;
+        }
+    }
+    
+    if (_grabber == nil) {
+        return;
+    }
+    
+    [_grabber albumsOfCurrentUserAtPageIndex:_lastLoadedPageIndex
+                   withNumberOfAlbumsPerPage:kNumberOfElementsPerPage
+                            andCompleteBlock:^(NSArray *results) {
+                                
+                                _lastLoadedPageIndex ++;
+                                
+                                GRKAlbum * popularPhotoAlbum = nil;
+                                for( GRKAlbum * newAlbum in results ){
+                                    NSRange range = [[[newAlbum name] lowercaseString] rangeOfString:@"popular"];
+                                    if (range.location != NSNotFound) {
+                                        popularPhotoAlbum = newAlbum;
+                                        break ;
+                                    }
+                                }
+                                
+                                [_grabber fillAlbum:popularPhotoAlbum
+                              withPhotosAtPageIndex:_lastLoadedPhotosPageIndex
+                          withNumberOfPhotosPerPage:kNumberOfElementsPerPage
+                                   andCompleteBlock:^(NSArray *results) {
+                                       
+                                       _lastLoadedPhotosPageIndex ++;
+                                       
+                                       NSArray * photos = [popularPhotoAlbum photos];
+                                       for (GRKPhoto * photo in photos) {
+                                           NSArray * images = [photo images];
+                                           
+                                           for (GRKImage * image in images) {
+                                               NSURL * imageUrl = [image URL];
+                                               
+                                               [self performSelectorInBackground:@selector(addFileFromURL:) withObject:imageUrl];
+                                           }
+                                       }
+                                       
+                                   } andErrorBlock:^(NSError *error) {
+                                       NSLog(@" error for page %d : %@", _lastLoadedPhotosPageIndex,  error);
+                                   }];
+                                
+                            } andErrorBlock:^(NSError *error) {
+                                
+                                NSLog(@" error ! %@", error);
+                                
+                            }];
 }
 
 - (void) __timerJob__: (NSTimer *) timer {
