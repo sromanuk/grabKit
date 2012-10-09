@@ -7,61 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1732B5221623413F001FE090 /* AnimatedUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1732B4E01623413F001FE090 /* AnimatedUIView.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
-		1732B5241623413F001FE090 /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4E51623413F001FE090 /* img1.jpg */; };
-		1732B5251623413F001FE090 /* img10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4E61623413F001FE090 /* img10.jpg */; };
-		1732B5261623413F001FE090 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4E71623413F001FE090 /* img2.jpg */; };
-		1732B5271623413F001FE090 /* img3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4E81623413F001FE090 /* img3.jpg */; };
-		1732B5281623413F001FE090 /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4E91623413F001FE090 /* img4.jpg */; };
-		1732B5291623413F001FE090 /* img5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4EA1623413F001FE090 /* img5.jpg */; };
-		1732B52A1623413F001FE090 /* img6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4EB1623413F001FE090 /* img6.jpg */; };
-		1732B52B1623413F001FE090 /* img7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4EC1623413F001FE090 /* img7.jpg */; };
-		1732B52C1623413F001FE090 /* img8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4ED1623413F001FE090 /* img8.jpg */; };
-		1732B52D1623413F001FE090 /* img9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4EE1623413F001FE090 /* img9.jpg */; };
-		1732B52E1623413F001FE090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4EF1623413F001FE090 /* InfoPlist.strings */; };
-		1732B52F1623413F001FE090 /* frames.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F11623413F001FE090 /* frames.xml */; };
-		1732B5301623413F001FE090 /* free-wallpaper-8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F21623413F001FE090 /* free-wallpaper-8.jpg */; };
-		1732B5311623413F001FE090 /* free-wallpaper-8@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F31623413F001FE090 /* free-wallpaper-8@2x.jpg */; };
-		1732B5321623413F001FE090 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F51623413F001FE090 /* arrow.png */; };
-		1732B5331623413F001FE090 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F61623413F001FE090 /* arrow@2x.png */; };
-		1732B5341623413F001FE090 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F71623413F001FE090 /* cross.png */; };
-		1732B5351623413F001FE090 /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F81623413F001FE090 /* cross@2x.png */; };
-		1732B5361623413F001FE090 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4F91623413F001FE090 /* email.png */; };
-		1732B5371623413F001FE090 /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4FA1623413F001FE090 /* email@2x.png */; };
-		1732B5381623413F001FE090 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4FB1623413F001FE090 /* facebook.png */; };
-		1732B5391623413F001FE090 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4FC1623413F001FE090 /* facebook@2x.png */; };
-		1732B53A1623413F001FE090 /* hand1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4FD1623413F001FE090 /* hand1-ipad.png */; };
-		1732B53B1623413F001FE090 /* hand1-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4FE1623413F001FE090 /* hand1-ipad@2x.png */; };
-		1732B53C1623413F001FE090 /* hand1-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B4FF1623413F001FE090 /* hand1-iphone.png */; };
-		1732B53D1623413F001FE090 /* hand1-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5001623413F001FE090 /* hand1-iphone@2x.png */; };
-		1732B53E1623413F001FE090 /* hand2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5011623413F001FE090 /* hand2-ipad.png */; };
-		1732B53F1623413F001FE090 /* hand2-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5021623413F001FE090 /* hand2-ipad@2x.png */; };
-		1732B5401623413F001FE090 /* hand2-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5031623413F001FE090 /* hand2-iphone.png */; };
-		1732B5411623413F001FE090 /* hand2-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5041623413F001FE090 /* hand2-iphone@2x.png */; };
-		1732B5421623413F001FE090 /* hand3-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5051623413F001FE090 /* hand3-ipad.png */; };
-		1732B5431623413F001FE090 /* hand3-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5061623413F001FE090 /* hand3-ipad@2x.png */; };
-		1732B5441623413F001FE090 /* hand3-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5071623413F001FE090 /* hand3-iphone.png */; };
-		1732B5451623413F001FE090 /* hand3-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5081623413F001FE090 /* hand3-iphone@2x.png */; };
-		1732B5461623413F001FE090 /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5091623413F001FE090 /* slider.png */; };
-		1732B5471623413F001FE090 /* slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B50A1623413F001FE090 /* slider@2x.png */; };
-		1732B5481623413F001FE090 /* sliderline.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B50B1623413F001FE090 /* sliderline.png */; };
-		1732B5491623413F001FE090 /* sliderline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B50C1623413F001FE090 /* sliderline@2x.png */; };
-		1732B54A1623413F001FE090 /* tumbler.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B50D1623413F001FE090 /* tumbler.png */; };
-		1732B54B1623413F001FE090 /* tumbler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B50E1623413F001FE090 /* tumbler@2x.png */; };
-		1732B54C1623413F001FE090 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B50F1623413F001FE090 /* twitter.png */; };
-		1732B54D1623413F001FE090 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5101623413F001FE090 /* twitter@2x.png */; };
-		1732B54E1623413F001FE090 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5111623413F001FE090 /* user.png */; };
-		1732B54F1623413F001FE090 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5121623413F001FE090 /* user@2x.png */; };
-		1732B5501623413F001FE090 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5131623413F001FE090 /* warning.png */; };
-		1732B5511623413F001FE090 /* warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5141623413F001FE090 /* warning@2x.png */; };
-		1732B5531623413F001FE090 /* much-su-kapli.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5161623413F001FE090 /* much-su-kapli.jpg */; };
-		1732B5541623413F001FE090 /* much-su-kapli@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1732B5171623413F001FE090 /* much-su-kapli@2x.jpg */; };
-		1732B5551623413F001FE090 /* PhotoFramesData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1732B5191623413F001FE090 /* PhotoFramesData.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
-		1732B5561623413F001FE090 /* photoView-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1732B51A1623413F001FE090 /* photoView-Info.plist */; };
-		1732B5571623413F001FE090 /* PhotoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1732B51D1623413F001FE090 /* PhotoViewerController.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
-		1732B5581623413F001FE090 /* PhotoViewerControllerIPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1732B51E1623413F001FE090 /* PhotoViewerControllerIPad.xib */; };
-		1732B5591623413F001FE090 /* PhotoViewerControllerIPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1732B51F1623413F001FE090 /* PhotoViewerControllerIPhone.xib */; };
-		1732B55A1623413F001FE090 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1732B5211623413F001FE090 /* Utils.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
 		1732B562162342DB001FE090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1732B561162342DB001FE090 /* QuartzCore.framework */; };
 		5F0167AE15D2D796003C3C1C /* GRKDemoAlbumsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0167AD15D2D796003C3C1C /* GRKDemoAlbumsListCell.m */; };
 		5F0167B115D2D825003C3C1C /* GRKDemoAlbumsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0167B015D2D825003C3C1C /* GRKDemoAlbumsListCell.xib */; };
@@ -533,6 +478,11 @@
 		5FF1FF3715BF21FF00EF2CE4 /* GRKServiceQueryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3C2D0915B9F945008D894A /* GRKServiceQueryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF1FF3815BF21FF00EF2CE4 /* GRKTokenStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3C2D0B15B9F945008D894A /* GRKTokenStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF1FF3915BF21FF00EF2CE4 /* GRKTokenStoreUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3C2D0D15B9F945008D894A /* GRKTokenStoreUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D4A95CC1623944100242F57 /* GKCachingObject.h in Resources */ = {isa = PBXBuildFile; fileRef = 6DE2FC89161AD59800B326D2 /* GKCachingObject.h */; };
+		6D4A95CD1623944100242F57 /* GrabKit.h in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4911315C3C3540000DADB /* GrabKit.h */; };
+		6D4A95CE1623944100242F57 /* GRKAlbum.h in Resources */ = {isa = PBXBuildFile; fileRef = 5F3C2CC715B9F945008D894A /* GRKAlbum.h */; };
+		6D4A95CF1623944100242F57 /* GRKImage.h in Resources */ = {isa = PBXBuildFile; fileRef = 5F3C2CC915B9F945008D894A /* GRKImage.h */; };
+		6D4A95D01623944100242F57 /* GRKPhoto.h in Resources */ = {isa = PBXBuildFile; fileRef = 5F3C2CCB15B9F945008D894A /* GRKPhoto.h */; };
 		6DE2FC7116190CB700B326D2 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6116190CB700B326D2 /* NSData+Base64.h */; };
 		6DE2FC7216190CB700B326D2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6216190CB700B326D2 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
 		6DE2FC7316190CB700B326D2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC6216190CB700B326D2 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -555,7 +505,7 @@
 		6DE2FC8516190CB700B326D2 /* PXRequest+Creation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC6F16190CB700B326D2 /* PXRequest+Creation.h */; };
 		6DE2FC8616190CB700B326D2 /* PXRequest+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */; settings = {COMPILER_FLAGS = "-fno-obj-arc"; }; };
 		6DE2FC8716190CB700B326D2 /* PXRequest+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC7016190CB700B326D2 /* PXRequest+Creation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6DE2FC8B161AD59800B326D2 /* GKCachingObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC89161AD59800B326D2 /* GKCachingObject.h */; };
+		6DE2FC8B161AD59800B326D2 /* GKCachingObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2FC89161AD59800B326D2 /* GKCachingObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6DE2FC8C161AD59800B326D2 /* GKCachingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC8A161AD59800B326D2 /* GKCachingObject.m */; };
 		6DE2FC8D161AD59800B326D2 /* GKCachingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2FC8A161AD59800B326D2 /* GKCachingObject.m */; };
 /* End PBXBuildFile section */
@@ -568,70 +518,16 @@
 			remoteGlobalIDString = 5F3C2B4915B9F7FC008D894A;
 			remoteInfo = grabKit;
 		};
+		6D4A95CA1623941400242F57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F3C2B4115B9F7FC008D894A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FD3999615BF1E2B0063542C;
+			remoteInfo = GrabKitLib;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1732B4DF1623413F001FE090 /* AnimatedUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedUIView.h; sourceTree = "<group>"; };
-		1732B4E01623413F001FE090 /* AnimatedUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedUIView.m; sourceTree = "<group>"; };
-		1732B4E31623413F001FE090 /* CommonIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonIdentifiers.h; sourceTree = "<group>"; };
-		1732B4E51623413F001FE090 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
-		1732B4E61623413F001FE090 /* img10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img10.jpg; sourceTree = "<group>"; };
-		1732B4E71623413F001FE090 /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
-		1732B4E81623413F001FE090 /* img3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpg; sourceTree = "<group>"; };
-		1732B4E91623413F001FE090 /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img4.jpg; sourceTree = "<group>"; };
-		1732B4EA1623413F001FE090 /* img5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img5.jpg; sourceTree = "<group>"; };
-		1732B4EB1623413F001FE090 /* img6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img6.jpg; sourceTree = "<group>"; };
-		1732B4EC1623413F001FE090 /* img7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img7.jpg; sourceTree = "<group>"; };
-		1732B4ED1623413F001FE090 /* img8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img8.jpg; sourceTree = "<group>"; };
-		1732B4EE1623413F001FE090 /* img9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img9.jpg; sourceTree = "<group>"; };
-		1732B4F01623413F001FE090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1732B4F11623413F001FE090 /* frames.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = frames.xml; sourceTree = "<group>"; };
-		1732B4F21623413F001FE090 /* free-wallpaper-8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "free-wallpaper-8.jpg"; sourceTree = "<group>"; };
-		1732B4F31623413F001FE090 /* free-wallpaper-8@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "free-wallpaper-8@2x.jpg"; sourceTree = "<group>"; };
-		1732B4F51623413F001FE090 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		1732B4F61623413F001FE090 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
-		1732B4F71623413F001FE090 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
-		1732B4F81623413F001FE090 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
-		1732B4F91623413F001FE090 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
-		1732B4FA1623413F001FE090 /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
-		1732B4FB1623413F001FE090 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
-		1732B4FC1623413F001FE090 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
-		1732B4FD1623413F001FE090 /* hand1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand1-ipad.png"; sourceTree = "<group>"; };
-		1732B4FE1623413F001FE090 /* hand1-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand1-ipad@2x.png"; sourceTree = "<group>"; };
-		1732B4FF1623413F001FE090 /* hand1-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand1-iphone.png"; sourceTree = "<group>"; };
-		1732B5001623413F001FE090 /* hand1-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand1-iphone@2x.png"; sourceTree = "<group>"; };
-		1732B5011623413F001FE090 /* hand2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand2-ipad.png"; sourceTree = "<group>"; };
-		1732B5021623413F001FE090 /* hand2-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand2-ipad@2x.png"; sourceTree = "<group>"; };
-		1732B5031623413F001FE090 /* hand2-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand2-iphone.png"; sourceTree = "<group>"; };
-		1732B5041623413F001FE090 /* hand2-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand2-iphone@2x.png"; sourceTree = "<group>"; };
-		1732B5051623413F001FE090 /* hand3-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand3-ipad.png"; sourceTree = "<group>"; };
-		1732B5061623413F001FE090 /* hand3-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand3-ipad@2x.png"; sourceTree = "<group>"; };
-		1732B5071623413F001FE090 /* hand3-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand3-iphone.png"; sourceTree = "<group>"; };
-		1732B5081623413F001FE090 /* hand3-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hand3-iphone@2x.png"; sourceTree = "<group>"; };
-		1732B5091623413F001FE090 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
-		1732B50A1623413F001FE090 /* slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider@2x.png"; sourceTree = "<group>"; };
-		1732B50B1623413F001FE090 /* sliderline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderline.png; sourceTree = "<group>"; };
-		1732B50C1623413F001FE090 /* sliderline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sliderline@2x.png"; sourceTree = "<group>"; };
-		1732B50D1623413F001FE090 /* tumbler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tumbler.png; sourceTree = "<group>"; };
-		1732B50E1623413F001FE090 /* tumbler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumbler@2x.png"; sourceTree = "<group>"; };
-		1732B50F1623413F001FE090 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
-		1732B5101623413F001FE090 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
-		1732B5111623413F001FE090 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		1732B5121623413F001FE090 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
-		1732B5131623413F001FE090 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
-		1732B5141623413F001FE090 /* warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning@2x.png"; sourceTree = "<group>"; };
-		1732B5161623413F001FE090 /* much-su-kapli.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "much-su-kapli.jpg"; sourceTree = "<group>"; };
-		1732B5171623413F001FE090 /* much-su-kapli@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "much-su-kapli@2x.jpg"; sourceTree = "<group>"; };
-		1732B5181623413F001FE090 /* PhotoFramesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFramesData.h; sourceTree = "<group>"; };
-		1732B5191623413F001FE090 /* PhotoFramesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFramesData.m; sourceTree = "<group>"; };
-		1732B51A1623413F001FE090 /* photoView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "photoView-Info.plist"; sourceTree = "<group>"; };
-		1732B51B1623413F001FE090 /* photoView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "photoView-Prefix.pch"; sourceTree = "<group>"; };
-		1732B51C1623413F001FE090 /* PhotoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewerController.h; sourceTree = "<group>"; };
-		1732B51D1623413F001FE090 /* PhotoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewerController.m; sourceTree = "<group>"; };
-		1732B51E1623413F001FE090 /* PhotoViewerControllerIPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewerControllerIPad.xib; sourceTree = "<group>"; };
-		1732B51F1623413F001FE090 /* PhotoViewerControllerIPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewerControllerIPhone.xib; sourceTree = "<group>"; };
-		1732B5201623413F001FE090 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		1732B5211623413F001FE090 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		1732B561162342DB001FE090 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5F0167AC15D2D796003C3C1C /* GRKDemoAlbumsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRKDemoAlbumsListCell.h; sourceTree = "<group>"; };
 		5F0167AD15D2D796003C3C1C /* GRKDemoAlbumsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRKDemoAlbumsListCell.m; sourceTree = "<group>"; };
@@ -1052,95 +948,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1732B4DE1623413F001FE090 /* photoView */ = {
-			isa = PBXGroup;
-			children = (
-				1732B4DF1623413F001FE090 /* AnimatedUIView.h */,
-				1732B4E01623413F001FE090 /* AnimatedUIView.m */,
-				1732B4E31623413F001FE090 /* CommonIdentifiers.h */,
-				1732B4E41623413F001FE090 /* defImages */,
-				1732B4EF1623413F001FE090 /* InfoPlist.strings */,
-				1732B4F11623413F001FE090 /* frames.xml */,
-				1732B4F21623413F001FE090 /* free-wallpaper-8.jpg */,
-				1732B4F31623413F001FE090 /* free-wallpaper-8@2x.jpg */,
-				1732B4F41623413F001FE090 /* GuiImages */,
-				1732B5161623413F001FE090 /* much-su-kapli.jpg */,
-				1732B5171623413F001FE090 /* much-su-kapli@2x.jpg */,
-				1732B5181623413F001FE090 /* PhotoFramesData.h */,
-				1732B5191623413F001FE090 /* PhotoFramesData.m */,
-				1732B51A1623413F001FE090 /* photoView-Info.plist */,
-				1732B51B1623413F001FE090 /* photoView-Prefix.pch */,
-				1732B51C1623413F001FE090 /* PhotoViewerController.h */,
-				1732B51D1623413F001FE090 /* PhotoViewerController.m */,
-				1732B51E1623413F001FE090 /* PhotoViewerControllerIPad.xib */,
-				1732B51F1623413F001FE090 /* PhotoViewerControllerIPhone.xib */,
-				1732B5201623413F001FE090 /* Utils.h */,
-				1732B5211623413F001FE090 /* Utils.m */,
-			);
-			name = photoView;
-			path = ../../photoView;
-			sourceTree = "<group>";
-		};
-		1732B4E41623413F001FE090 /* defImages */ = {
-			isa = PBXGroup;
-			children = (
-				1732B4E51623413F001FE090 /* img1.jpg */,
-				1732B4E61623413F001FE090 /* img10.jpg */,
-				1732B4E71623413F001FE090 /* img2.jpg */,
-				1732B4E81623413F001FE090 /* img3.jpg */,
-				1732B4E91623413F001FE090 /* img4.jpg */,
-				1732B4EA1623413F001FE090 /* img5.jpg */,
-				1732B4EB1623413F001FE090 /* img6.jpg */,
-				1732B4EC1623413F001FE090 /* img7.jpg */,
-				1732B4ED1623413F001FE090 /* img8.jpg */,
-				1732B4EE1623413F001FE090 /* img9.jpg */,
-			);
-			path = defImages;
-			sourceTree = "<group>";
-		};
-		1732B4F41623413F001FE090 /* GuiImages */ = {
-			isa = PBXGroup;
-			children = (
-				1732B4F51623413F001FE090 /* arrow.png */,
-				1732B4F61623413F001FE090 /* arrow@2x.png */,
-				1732B4F71623413F001FE090 /* cross.png */,
-				1732B4F81623413F001FE090 /* cross@2x.png */,
-				1732B4F91623413F001FE090 /* email.png */,
-				1732B4FA1623413F001FE090 /* email@2x.png */,
-				1732B4FB1623413F001FE090 /* facebook.png */,
-				1732B4FC1623413F001FE090 /* facebook@2x.png */,
-				1732B4FD1623413F001FE090 /* hand1-ipad.png */,
-				1732B4FE1623413F001FE090 /* hand1-ipad@2x.png */,
-				1732B4FF1623413F001FE090 /* hand1-iphone.png */,
-				1732B5001623413F001FE090 /* hand1-iphone@2x.png */,
-				1732B5011623413F001FE090 /* hand2-ipad.png */,
-				1732B5021623413F001FE090 /* hand2-ipad@2x.png */,
-				1732B5031623413F001FE090 /* hand2-iphone.png */,
-				1732B5041623413F001FE090 /* hand2-iphone@2x.png */,
-				1732B5051623413F001FE090 /* hand3-ipad.png */,
-				1732B5061623413F001FE090 /* hand3-ipad@2x.png */,
-				1732B5071623413F001FE090 /* hand3-iphone.png */,
-				1732B5081623413F001FE090 /* hand3-iphone@2x.png */,
-				1732B5091623413F001FE090 /* slider.png */,
-				1732B50A1623413F001FE090 /* slider@2x.png */,
-				1732B50B1623413F001FE090 /* sliderline.png */,
-				1732B50C1623413F001FE090 /* sliderline@2x.png */,
-				1732B50D1623413F001FE090 /* tumbler.png */,
-				1732B50E1623413F001FE090 /* tumbler@2x.png */,
-				1732B50F1623413F001FE090 /* twitter.png */,
-				1732B5101623413F001FE090 /* twitter@2x.png */,
-				1732B5111623413F001FE090 /* user.png */,
-				1732B5121623413F001FE090 /* user@2x.png */,
-				1732B5131623413F001FE090 /* warning.png */,
-				1732B5141623413F001FE090 /* warning@2x.png */,
-			);
-			path = GuiImages;
-			sourceTree = "<group>";
-		};
 		5F3C2B3F15B9F7FC008D894A = {
 			isa = PBXGroup;
 			children = (
-				1732B4DE1623413F001FE090 /* photoView */,
 				5F3C2B5415B9F7FC008D894A /* grabKit */,
 				5F3C2B6C15B9F7FC008D894A /* grabKitTests */,
 				5F3C2B4D15B9F7FC008D894A /* Frameworks */,
@@ -1909,6 +1719,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DE2FC8B161AD59800B326D2 /* GKCachingObject.h in Headers */,
 				5FA4911415C3C3540000DADB /* GrabKit.h in Headers */,
 				5FF1FF1515BF21FF00EF2CE4 /* GRKConstants.h in Headers */,
 				5FF1FF1615BF21FF00EF2CE4 /* GRKConfiguratorProtocol.h in Headers */,
@@ -2070,7 +1881,6 @@
 				6DE2FC7F16190CB700B326D2 /* PXAPIHelper+Auth.h in Headers */,
 				6DE2FC8216190CB700B326D2 /* PXRequest.h in Headers */,
 				6DE2FC8516190CB700B326D2 /* PXRequest+Creation.h in Headers */,
-				6DE2FC8B161AD59800B326D2 /* GKCachingObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2124,6 +1934,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6D4A95CB1623941400242F57 /* PBXTargetDependency */,
 			);
 			name = GrabKitBundle;
 			productName = GrabKitBundle;
@@ -2196,57 +2007,6 @@
 				5F89BAFB15C85D990098F1D7 /* thumbnail_placeholder.png in Resources */,
 				5F89BAFC15C85D990098F1D7 /* thumbnail_placeholder@2X.png in Resources */,
 				5F0167B115D2D825003C3C1C /* GRKDemoAlbumsListCell.xib in Resources */,
-				1732B5241623413F001FE090 /* img1.jpg in Resources */,
-				1732B5251623413F001FE090 /* img10.jpg in Resources */,
-				1732B5261623413F001FE090 /* img2.jpg in Resources */,
-				1732B5271623413F001FE090 /* img3.jpg in Resources */,
-				1732B5281623413F001FE090 /* img4.jpg in Resources */,
-				1732B5291623413F001FE090 /* img5.jpg in Resources */,
-				1732B52A1623413F001FE090 /* img6.jpg in Resources */,
-				1732B52B1623413F001FE090 /* img7.jpg in Resources */,
-				1732B52C1623413F001FE090 /* img8.jpg in Resources */,
-				1732B52D1623413F001FE090 /* img9.jpg in Resources */,
-				1732B52E1623413F001FE090 /* InfoPlist.strings in Resources */,
-				1732B52F1623413F001FE090 /* frames.xml in Resources */,
-				1732B5301623413F001FE090 /* free-wallpaper-8.jpg in Resources */,
-				1732B5311623413F001FE090 /* free-wallpaper-8@2x.jpg in Resources */,
-				1732B5321623413F001FE090 /* arrow.png in Resources */,
-				1732B5331623413F001FE090 /* arrow@2x.png in Resources */,
-				1732B5341623413F001FE090 /* cross.png in Resources */,
-				1732B5351623413F001FE090 /* cross@2x.png in Resources */,
-				1732B5361623413F001FE090 /* email.png in Resources */,
-				1732B5371623413F001FE090 /* email@2x.png in Resources */,
-				1732B5381623413F001FE090 /* facebook.png in Resources */,
-				1732B5391623413F001FE090 /* facebook@2x.png in Resources */,
-				1732B53A1623413F001FE090 /* hand1-ipad.png in Resources */,
-				1732B53B1623413F001FE090 /* hand1-ipad@2x.png in Resources */,
-				1732B53C1623413F001FE090 /* hand1-iphone.png in Resources */,
-				1732B53D1623413F001FE090 /* hand1-iphone@2x.png in Resources */,
-				1732B53E1623413F001FE090 /* hand2-ipad.png in Resources */,
-				1732B53F1623413F001FE090 /* hand2-ipad@2x.png in Resources */,
-				1732B5401623413F001FE090 /* hand2-iphone.png in Resources */,
-				1732B5411623413F001FE090 /* hand2-iphone@2x.png in Resources */,
-				1732B5421623413F001FE090 /* hand3-ipad.png in Resources */,
-				1732B5431623413F001FE090 /* hand3-ipad@2x.png in Resources */,
-				1732B5441623413F001FE090 /* hand3-iphone.png in Resources */,
-				1732B5451623413F001FE090 /* hand3-iphone@2x.png in Resources */,
-				1732B5461623413F001FE090 /* slider.png in Resources */,
-				1732B5471623413F001FE090 /* slider@2x.png in Resources */,
-				1732B5481623413F001FE090 /* sliderline.png in Resources */,
-				1732B5491623413F001FE090 /* sliderline@2x.png in Resources */,
-				1732B54A1623413F001FE090 /* tumbler.png in Resources */,
-				1732B54B1623413F001FE090 /* tumbler@2x.png in Resources */,
-				1732B54C1623413F001FE090 /* twitter.png in Resources */,
-				1732B54D1623413F001FE090 /* twitter@2x.png in Resources */,
-				1732B54E1623413F001FE090 /* user.png in Resources */,
-				1732B54F1623413F001FE090 /* user@2x.png in Resources */,
-				1732B5501623413F001FE090 /* warning.png in Resources */,
-				1732B5511623413F001FE090 /* warning@2x.png in Resources */,
-				1732B5531623413F001FE090 /* much-su-kapli.jpg in Resources */,
-				1732B5541623413F001FE090 /* much-su-kapli@2x.jpg in Resources */,
-				1732B5561623413F001FE090 /* photoView-Info.plist in Resources */,
-				1732B5581623413F001FE090 /* PhotoViewerControllerIPad.xib in Resources */,
-				1732B5591623413F001FE090 /* PhotoViewerControllerIPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2262,6 +2022,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4A95CC1623944100242F57 /* GKCachingObject.h in Resources */,
+				6D4A95CD1623944100242F57 /* GrabKit.h in Resources */,
+				6D4A95CE1623944100242F57 /* GRKAlbum.h in Resources */,
+				6D4A95CF1623944100242F57 /* GRKImage.h in Resources */,
+				6D4A95D01623944100242F57 /* GRKPhoto.h in Resources */,
 				5F89F1D315BFC1BC00B8739D /* GTMOAuth2ViewTouch.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2293,7 +2058,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Version 2.0 (updated for Xcode 4, with some fixes)\n# Changes:\n#    - Works with xcode 4, even when running xcode 3 projects (Workarounds for apple bugs)\n#    - Faster / better: only runs lipo once, instead of once per recursion\n#    - Added some debugging statemetns that can be switched on/off by changing the DEBUG_THIS_SCRIPT variable to \"true\"\n#    - Fixed some typos\n# \n# Purpose:\n#   Create a static library for iPhone from within XCode\n#   Because Apple staff DELIBERATELY broke Xcode to make this impossible from the GUI (Xcode 3.2.3 specifically states this in the Release notes!)\n#   ...no, I don't understand why they did this!\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n# More info: see this Stack Overflow question: http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\"\nxcodebuild -configuration \"${CONFIGURATION}\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nlipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}/usr/local/include\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}/usr/local/include\"\n# * needs to be outside the double quotes?\ncp \"${CURRENTCONFIG_DEVICE_DIR}/usr/local/include/\"* \"${CREATING_UNIVERSAL_DIR}/usr/local/include\"\nfi\nfi";
+			shellScript = "# Version 2.0 (updated for Xcode 4, with some fixes)\n# Changes:\n#    - Works with xcode 4, even when running xcode 3 projects (Workarounds for apple bugs)\n#    - Faster / better: only runs lipo once, instead of once per recursion\n#    - Added some debugging statemetns that can be switched on/off by changing the DEBUG_THIS_SCRIPT variable to \"true\"\n#    - Fixed some typos\n# \n# Purpose:\n#   Create a static library for iPhone from within XCode\n#   Because Apple staff DELIBERATELY broke Xcode to make this impossible from the GUI (Xcode 3.2.3 specifically states this in the Release notes!)\n#   ...no, I don't understand why they did this!\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n# More info: see this Stack Overflow question: http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\n#OTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\"\nxcodebuild -configuration \"${CONFIGURATION}\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\necho \"CURRENTCONFIG_DEVICE_DIR == ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"CREATING_UNIVERSAL_DIR == ${CREATING_UNIVERSAL_DIR}\"\nlipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}/include\" ]\nthen\necho \"Copying headers\"\nmkdir -p \"${CREATING_UNIVERSAL_DIR}/include\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}/include/\"* \"${CREATING_UNIVERSAL_DIR}/include\"\nelse\necho \"We will not copy headers\"\nfi\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2459,10 +2224,6 @@
 				6DE2FC8316190CB700B326D2 /* PXRequest.m in Sources */,
 				6DE2FC8616190CB700B326D2 /* PXRequest+Creation.m in Sources */,
 				6DE2FC8C161AD59800B326D2 /* GKCachingObject.m in Sources */,
-				1732B5221623413F001FE090 /* AnimatedUIView.m in Sources */,
-				1732B5551623413F001FE090 /* PhotoFramesData.m in Sources */,
-				1732B5571623413F001FE090 /* PhotoViewerController.m in Sources */,
-				1732B55A1623413F001FE090 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2498,6 +2259,7 @@
 				5FD399B115BF1EA90063542C /* GRKAlbum.m in Sources */,
 				5FD399B315BF1EA90063542C /* GRKImage.m in Sources */,
 				5FD399B515BF1EA90063542C /* GRKPhoto.m in Sources */,
+				6DE2FC8D161AD59800B326D2 /* GKCachingObject.m in Sources */,
 				5FD399B715BF1EA90063542C /* GRKDeviceGrabber.m in Sources */,
 				5FD399B915BF1EA90063542C /* GRKFacebookConnector.m in Sources */,
 				5FD399BB15BF1EA90063542C /* GRKFacebookGrabber.m in Sources */,
@@ -2630,7 +2392,6 @@
 				6DE2FC8116190CB700B326D2 /* PXAPIHelper+Auth.m in Sources */,
 				6DE2FC8416190CB700B326D2 /* PXRequest.m in Sources */,
 				6DE2FC8716190CB700B326D2 /* PXRequest+Creation.m in Sources */,
-				6DE2FC8D161AD59800B326D2 /* GKCachingObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2642,17 +2403,14 @@
 			target = 5F3C2B4915B9F7FC008D894A /* grabKit Demo */;
 			targetProxy = 5F3C2B6A15B9F7FC008D894A /* PBXContainerItemProxy */;
 		};
+		6D4A95CB1623941400242F57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FD3999615BF1E2B0063542C /* GrabKitLib */;
+			targetProxy = 6D4A95CA1623941400242F57 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1732B4EF1623413F001FE090 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1732B4F01623413F001FE090 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		5F3C2B5715B9F7FC008D894A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2813,7 +2571,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -2834,7 +2592,7 @@
 				INFOPLIST_FILE = "GrabKitBundle/GrabKitBundle-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -2842,10 +2600,7 @@
 		5FD399A015BF1E2B0063542C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/GrabKitLib.dst;
 				EXECUTABLE_PREFIX = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2859,17 +2614,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 armv7s i386";
 			};
 			name = Debug;
 		};
 		5FD399A115BF1E2B0063542C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/GrabKitLib.dst;
 				EXECUTABLE_PREFIX = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2883,7 +2635,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 armv7s i386";
 			};
 			name = Release;
 		};

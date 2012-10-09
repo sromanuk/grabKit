@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /**
  * NSCache has no ability to store it to disk, and I don't think it's a good idea to store photo path in the SQLite
