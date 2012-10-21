@@ -154,17 +154,14 @@ void (^GrabberServiceBlock_500PX) ();
                                            queue:_downloadsOperationQueue
                                completionHandler:^(NSURLResponse * response, NSData * data, NSError * error) {
                                    NSLog(@"error is %@", error);
-//                                   NSLog(@"response is %@", response);
                                    
                                    NSString * responseData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; // JSON object
-//                                   NSLog(@"data is %@", responseData);
                                    
                                    SBJsonParser * parser = [[SBJsonParser alloc] init];
                                    NSObject * jsonObject = [parser objectWithString:responseData];
                                    if ([jsonObject isKindOfClass:[NSDictionary class]]) {
                                        
                                        NSArray * photosArray = (NSArray *) [(NSDictionary *) jsonObject objectForKey:@"photos"];
-//                                       NSLog(@"photosArray is %@", photosArray);
                                        
                                        for (NSDictionary * photo in photosArray) {
                                            NSString  * urlString = (NSString *) [[photo objectForKey:@"image_url"] lastObject];
@@ -222,7 +219,7 @@ void (^GrabberServiceBlock_500PX) ();
                                 _lastLoadedPageIndex ++;
                                 
                                 GRKAlbum * popularPhotoAlbum = nil;
-                                for( GRKAlbum * newAlbum in results ){
+                                for( GRKAlbum * newAlbum in results ) {
                                     NSRange range = [[[newAlbum name] lowercaseString] rangeOfString:@"popular"];
                                     if (range.location != NSNotFound) {
                                         popularPhotoAlbum = newAlbum;
@@ -238,7 +235,6 @@ void (^GrabberServiceBlock_500PX) ();
                                    andCompleteBlock:^(NSArray *results) {
                                        
                                        NSLog(@"album filled");
-                                       
                                        
                                        _lastLoadedPhotosPageIndex ++;
                                        
@@ -411,10 +407,14 @@ void (^GrabberServiceBlock_500PX) ();
                 }
                 
                 if (currentCacheSize + [data length] < GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
-                    NSLog(@"cleaning was done. currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d", currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
+                    NSLog(@"cleaning was done. currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d",
+                          currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
+                    
                     [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] addObject:pngPath];
                     [_cacheingObject setObject:[NSNumber numberWithInteger:currentCacheSize + [data length]]
                                         forKey:GK_TOTAL_OBJECTS_SIZE_KEY];
+                    
+                    [_cacheingObject writeToFile:GK_PATH_TO_STORAGE_FILE atomically:NO];
                     
                     if (_nextCacheIndex == GK_CACHE_EMPTY) _nextCacheIndex = 0;
                 }
