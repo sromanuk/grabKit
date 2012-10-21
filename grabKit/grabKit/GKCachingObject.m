@@ -14,6 +14,7 @@
 #import "GRKAlbum.h"
 #import "GRKImage.h"
 #import "GRKPhoto.h"
+#import "SBJsonParser.h"
 
 
 @interface GKCachingObject (Private)
@@ -100,6 +101,14 @@ void (^GrabberServiceBlock_500PX) ();
             
             _lockMutex = [[NSObject alloc] init];
             _grabberObjects = [[NSMutableDictionary alloc] initWithCapacity:5];
+            
+            if (![[NSFileManager defaultManager] fileExistsAtPath:GK_PATH_TO_STORAGE]) {
+                
+                [[NSFileManager defaultManager] createDirectoryAtPath:GK_PATH_TO_STORAGE
+                                          withIntermediateDirectories:NO
+                                                           attributes:nil
+                                                                error:nil];
+            }
         }
         
         [self __implementGrabberBlocks__];
@@ -139,12 +148,36 @@ void (^GrabberServiceBlock_500PX) ();
         
         NSURLRequest * request = [pxapi urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular
                                                    resultsPerPage:kNumberOfElementsPerPage
-                                                             page:1];
+                                                             page:pageNumber];
         
         [NSURLConnection sendAsynchronousRequest:request
                                            queue:_downloadsOperationQueue
                                completionHandler:^(NSURLResponse * response, NSData * data, NSError * error) {
+                                   NSLog(@"error is %@", error);
+//                                   NSLog(@"response is %@", response);
                                    
+                                   NSString * responseData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; // JSON object
+//                                   NSLog(@"data is %@", responseData);
+                                   
+                                   SBJsonParser * parser = [[SBJsonParser alloc] init];
+                                   NSObject * jsonObject = [parser objectWithString:responseData];
+                                   if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+                                       
+                                       NSArray * photosArray = (NSArray *) [(NSDictionary *) jsonObject objectForKey:@"photos"];
+//                                       NSLog(@"photosArray is %@", photosArray);
+                                       
+                                       for (NSDictionary * photo in photosArray) {
+                                           NSString  * urlString = (NSString *) [[photo objectForKey:@"image_url"] lastObject];
+                                           if (urlString != nil && ![urlString isEqualToString:@""]) {
+                                               NSURL * url = [[NSURL alloc] initWithString:urlString];
+                                               
+                                               [self addFileFromURL:url];
+                                           }
+                                       }
+                                       
+                                   } else {
+                                       NSLog(@"Can't recognize object's type %@", jsonObject);
+                                   }
                                }];
         
         pageNumber++;
@@ -153,6 +186,7 @@ void (^GrabberServiceBlock_500PX) ();
 
 - (void) __loadPopularPhotoForServiceName__: (NSString *) serviceName {
     if (serviceName == nil || [serviceName isEqualToString:@""]) {
+        NSLog(@"service name is empty");
         return ;
     }
     
@@ -175,8 +209,11 @@ void (^GrabberServiceBlock_500PX) ();
     }
     
     if (_grabber == nil) {
+        NSLog(@"Can't create grabber service's object for %@", serviceName);
         return;
     }
+    
+    NSLog(@"grabber service object created for service name %@", serviceName);
     
     [_grabber albumsOfCurrentUserAtPageIndex:_lastLoadedPageIndex
                    withNumberOfAlbumsPerPage:kNumberOfElementsPerPage
@@ -193,10 +230,15 @@ void (^GrabberServiceBlock_500PX) ();
                                     }
                                 }
                                 
+                                NSLog(@"album selected and it is %@", popularPhotoAlbum);
+                                
                                 [_grabber fillAlbum:popularPhotoAlbum
                               withPhotosAtPageIndex:_lastLoadedPhotosPageIndex
                           withNumberOfPhotosPerPage:kNumberOfElementsPerPage
                                    andCompleteBlock:^(NSArray *results) {
+                                       
+                                       NSLog(@"album filled");
+                                       
                                        
                                        _lastLoadedPhotosPageIndex ++;
                                        
@@ -278,6 +320,20 @@ void (^GrabberServiceBlock_500PX) ();
                 break ;
         }
     }
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,
+                                             (unsigned long)NULL), ^{
+        for (int i = 100; i > 0; i--) {
+            sleep(10);
+            UIImage * img = [[GKCachingObject instance] getCachedImage];
+            if (img) {
+                NSLog(@"image from cache received");
+            } else {
+                NSLog(@"image from cache was not received");
+            }
+        }
+    });
 }
 
 - (void) removeGrabbingService: (GK_IMAGE_SERVICE_TYPE) serviceName {
@@ -289,12 +345,12 @@ void (^GrabberServiceBlock_500PX) ();
 }
 
 - (NSMutableDictionary *) __createCachedObjectStructure__ {
-    NSMutableDictionary * cached_object_template = [[NSMutableDictionary alloc] initWithCapacity:25];
+    NSMutableDictionary * cached_object_template = [[NSMutableDictionary alloc] initWithCapacity:5];
     
     [cached_object_template setObject:[NSNumber numberWithInteger:0]
                                forKey:GK_TOTAL_OBJECTS_SIZE_KEY];
     
-    [cached_object_template setObject:[NSMutableArray arrayWithCapacity:10]
+    [cached_object_template setObject:[[NSMutableArray alloc] initWithCapacity:10]
                                forKey:GK_CACHED_OBJECTS_KEY];
     
     return cached_object_template;
@@ -302,12 +358,15 @@ void (^GrabberServiceBlock_500PX) ();
 
 - (BOOL) addFileFromURL: (NSURL *) url {
     if (url == nil) {
+        NSLog(@"Adding image from URL and URL is nil");
         return NO;
     }
+    NSLog(@"Adding image from URL and URL is %@", [url absoluteString]);
     
     @synchronized(self) {
         NSInteger currentCacheSize = [[_cacheingObject objectForKey:GK_TOTAL_OBJECTS_SIZE_KEY] integerValue];
         if (currentCacheSize >= GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
+            NSLog(@"cache is full");
             return NO;
         }
     }
@@ -327,8 +386,12 @@ void (^GrabberServiceBlock_500PX) ();
             UIImage * receivedImage = [UIImage imageWithData:data];
             [UIImagePNGRepresentation(receivedImage) writeToFile:pngPath atomically:NO];
             
+            if (receivedImage == nil) NSLog(@"received image was nil!");
+            
             @synchronized(self) {
                 NSInteger currentCacheSize = [[_cacheingObject objectForKey:GK_TOTAL_OBJECTS_SIZE_KEY] integerValue];
+                NSLog(@"currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d", currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
+                
                 if (currentCacheSize + [data length] > GK_MAXIMUM_OBJECTS_SIZE_VALUE && _nextCacheIndex != GK_CACHE_EMPTY) {
                     
                     NSString * path = [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] objectAtIndex:0];
@@ -340,6 +403,7 @@ void (^GrabberServiceBlock_500PX) ();
                     [_cacheingObject setObject:[NSNumber numberWithInteger:currentCacheSize] forKey:GK_TOTAL_OBJECTS_SIZE_KEY];
                     
                     [[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
+                    NSLog (@"removed file at path %@", path);
                     
                     [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] removeObjectAtIndex:0];
                     
@@ -347,6 +411,7 @@ void (^GrabberServiceBlock_500PX) ();
                 }
                 
                 if (currentCacheSize + [data length] < GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
+                    NSLog(@"cleaning was done. currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d", currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
                     [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] addObject:pngPath];
                     [_cacheingObject setObject:[NSNumber numberWithInteger:currentCacheSize + [data length]]
                                         forKey:GK_TOTAL_OBJECTS_SIZE_KEY];
@@ -370,8 +435,11 @@ void (^GrabberServiceBlock_500PX) ();
         if ([cache count] > _nextCacheIndex && [cache count] > 0) {
             NSString * path = [cache objectAtIndex:_nextCacheIndex];
             image = [[UIImage alloc] initWithContentsOfFile:path];
+            NSLog(@"path to cached image is %@, image is %@", path, image);
             
             _nextCacheIndex++;
+        } else {
+            NSLog(@"problem during receiving image from cache, nextCacheIndex is %d and objects in cache count %d", _nextCacheIndex, [cache count]);
         }
     }
     
