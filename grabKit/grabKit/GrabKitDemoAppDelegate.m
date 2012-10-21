@@ -31,7 +31,7 @@
 // Also import your custom class to configure GrabKit
 #import "myGrabKitConfigurator.h"
 
-#import "PhotoViewerController.h"
+//#import "PhotoViewerController.h"
 
 @implementation GrabKitDemoAppDelegate
 
@@ -47,22 +47,22 @@
     
     // Override point for customization after application launch.
     
-    //GRKDemoServicesList * servicesList = [[GRKDemoServicesList alloc] initWithNibName:@"GRKDemoServicesList" bundle:nil];
-    //UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:servicesList];
+    GRKDemoServicesList * servicesList = [[GRKDemoServicesList alloc] initWithNibName:@"GRKDemoServicesList" bundle:nil];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:servicesList];
     
-    PhotoViewerController* _photoViewController;
+//    PhotoViewerController* _photoViewController;
     
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        _photoViewController = [[PhotoViewerController alloc] initWithNibName:@"PhotoViewerControllerIPad" bundle:[NSBundle mainBundle]];
-    }
-    else
-    {
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-        _photoViewController = [[PhotoViewerController alloc] initWithNibName:@"PhotoViewerControllerIPhone" bundle:[NSBundle mainBundle]];
-    }
-    //UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:_photoViewController];
-    [self.window setRootViewController:_photoViewController];
+//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//    {
+//        _photoViewController = [[PhotoViewerController alloc] initWithNibName:@"PhotoViewerControllerIPad" bundle:[NSBundle mainBundle]];
+//    }
+//    else
+//    {
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+//        _photoViewController = [[PhotoViewerController alloc] initWithNibName:@"PhotoViewerControllerIPhone" bundle:[NSBundle mainBundle]];
+//    }
+//    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:_photoViewController];
+    [self.window setRootViewController:navigationController];
     
     [self.window makeKeyAndVisible];
     
