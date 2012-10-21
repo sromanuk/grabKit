@@ -412,7 +412,7 @@ void (^GrabberServiceBlock_500PX) ();
                 }
                 
                 if (currentCacheSize + [data length] < GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
-                    NSLog(@"cleaning was done. currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d",
+                    NSLog(@"cleaning was probably done. currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d",
                           currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
                     
                     [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] addObject:pngPath];
@@ -423,6 +423,16 @@ void (^GrabberServiceBlock_500PX) ();
                     
                     if (_nextCacheIndex == GK_CACHE_EMPTY) _nextCacheIndex = 0;
                 }
+                // if cache is full we should set timer interval to the greater value.
+                // it does not seems like possible, so we should re-create the timer.
+                // in this case it would be probably a better solution to create another
+                // timer that will start this one.
+                // thois solution will be a better one because when we lost an internet
+                // connection we also should create another timer and only after the
+                // much greater interval try to start download timer again.
+                //
+                // that is why let's make it so.
+                
             }
         }
     }];
