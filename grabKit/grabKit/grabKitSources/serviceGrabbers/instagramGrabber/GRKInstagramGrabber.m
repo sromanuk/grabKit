@@ -59,7 +59,6 @@
  */
 -(void) connectWithConnectionIsCompleteBlock:(GRKGrabberConnectionIsCompleteBlock)connectionIsCompleteBlock andErrorBlock:(GRKErrorBlock)errorBlock;
 {
-  
     // use a GRKInstagramConnector
     [self resetAndRebuildConnector];
         
@@ -151,7 +150,7 @@
     __block GRKInstagramQuery * albumsQuery = nil;
     
 												
-    NSString * endpoint = @"users/self";
+    NSString * endpoint = @"media/popular";
     
     //#warning for dev only    
     //endpoint = @"users/980434";

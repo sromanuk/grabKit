@@ -24,6 +24,7 @@
 - (void) __timerJob__: (NSTimer *) timer;
 - (void) __implementGrabberBlocks__;
 - (void) __loadPopularPhotoForServiceGrabber__: (GRKServiceGrabber *) _grabber;
+- (void) __load500pxPhotos__;
 
 @end
 
@@ -142,43 +143,47 @@ void (^GrabberServiceBlock_500PX) ();
     };
     
     GrabberServiceBlock_500PX = ^{
-        static NSInteger pageNumber = 1;
-        
-        PXAPIHelper * pxapi = [[PXAPIHelper alloc] init];
-        
-        NSURLRequest * request = [pxapi urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular
-                                                   resultsPerPage:kNumberOfElementsPerPage
-                                                             page:pageNumber];
-        
-        [NSURLConnection sendAsynchronousRequest:request
-                                           queue:_downloadsOperationQueue
-                               completionHandler:^(NSURLResponse * response, NSData * data, NSError * error) {
-                                   NSLog(@"error is %@", error);
-                                   
-                                   NSString * responseData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; // JSON object
-                                   
-                                   SBJsonParser * parser = [[SBJsonParser alloc] init];
-                                   NSObject * jsonObject = [parser objectWithString:responseData];
-                                   if ([jsonObject isKindOfClass:[NSDictionary class]]) {
-                                       
-                                       NSArray * photosArray = (NSArray *) [(NSDictionary *) jsonObject objectForKey:@"photos"];
-                                       
-                                       for (NSDictionary * photo in photosArray) {
-                                           NSString  * urlString = (NSString *) [[photo objectForKey:@"image_url"] lastObject];
-                                           if (urlString != nil && ![urlString isEqualToString:@""]) {
-                                               NSURL * url = [[NSURL alloc] initWithString:urlString];
-                                               
-                                               [self addFileFromURL:url];
-                                           }
-                                       }
-                                       
-                                   } else {
-                                       NSLog(@"Can't recognize object's type %@", jsonObject);
-                                   }
-                               }];
-        
-        pageNumber++;
+        [self __load500pxPhotos__];
     };
+}
+
+- (void) __load500pxPhotos__ {
+    static NSInteger pageNumber = 1;
+    
+    PXAPIHelper * pxapi = [[PXAPIHelper alloc] init];
+    
+    NSURLRequest * request = [pxapi urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular
+                                               resultsPerPage:kNumberOfElementsPerPage
+                                                         page:pageNumber];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:_downloadsOperationQueue
+                           completionHandler:^(NSURLResponse * response, NSData * data, NSError * error) {
+                               NSLog(@"error is %@", error);
+                               
+                               NSString * responseData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; // JSON object
+                               
+                               SBJsonParser * parser = [[SBJsonParser alloc] init];
+                               NSObject * jsonObject = [parser objectWithString:responseData];
+                               if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+                                   
+                                   NSArray * photosArray = (NSArray *) [(NSDictionary *) jsonObject objectForKey:@"photos"];
+                                   
+                                   for (NSDictionary * photo in photosArray) {
+                                       NSString  * urlString = (NSString *) [[photo objectForKey:@"image_url"] lastObject];
+                                       if (urlString != nil && ![urlString isEqualToString:@""]) {
+                                           NSURL * url = [[NSURL alloc] initWithString:urlString];
+                                           
+                                           [self addFileFromURL:url];
+                                       }
+                                   }
+                                   
+                               } else {
+                                   NSLog(@"Can't recognize object's type %@", jsonObject);
+                               }
+                           }];
+    
+    pageNumber++;
 }
 
 - (void) __loadPopularPhotoForServiceName__: (NSString *) serviceName {

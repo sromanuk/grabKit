@@ -72,7 +72,7 @@ static NSString * accessTokenKey = @"AccessTokenKey";
         [GRKInstagramSingleton sharedInstance].access_token = token;
         
         __block GRKInstagramQuery * testLoginQuery = nil;
-        testLoginQuery = [GRKInstagramQuery queryWithEndpoint:@"users/self" 
+        testLoginQuery = [GRKInstagramQuery queryWithEndpoint:@"media/popular" 
                                  withParams:nil 
                           withHandlingBlock:^(GRKInstagramQuery *query, id result){
                     
@@ -152,7 +152,7 @@ static NSString * accessTokenKey = @"AccessTokenKey";
         [GRKInstagramSingleton sharedInstance].access_token = token;
      
         __block GRKInstagramQuery * testLoginQuery = nil;
-        testLoginQuery = [GRKInstagramQuery queryWithEndpoint:@"users/self" 
+        testLoginQuery = [GRKInstagramQuery queryWithEndpoint:@"media/popular"
                                                    withParams:nil 
                                             withHandlingBlock:^(GRKInstagramQuery *query, id result){
                                                 

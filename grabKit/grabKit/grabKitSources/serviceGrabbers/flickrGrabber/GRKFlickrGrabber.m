@@ -296,7 +296,7 @@ withNumberOfPhotosPerPage:(NSUInteger)numberOfPhotosPerPage
     
     __block GRKFlickrQuery * fillAlbumQuery = nil;
     
-    fillAlbumQuery = [GRKFlickrQuery queryWithMethod:@"flickr.photosets.getPhotos"
+    fillAlbumQuery = [GRKFlickrQuery queryWithMethod:@"flickr.stats.getPopularPhotos"
                                   andParams:params
                           withHandlingBlock:^(GRKFlickrQuery * query, id result){
                               
