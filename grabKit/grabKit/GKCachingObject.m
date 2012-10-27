@@ -88,20 +88,11 @@ void (^GrabberServiceBlock_500PX) ();
 - (id) __init__ {
     if (self = [super init]) {
         _cacheingObject = [[NSMutableDictionary alloc] initWithContentsOfFile:GK_PATH_TO_STORAGE_FILE];
+        
         if (!_cacheingObject) {
             NSLog(@"storage file could not be loaded (%@)", GK_PATH_TO_STORAGE_FILE);
             
             _cacheingObject = [self __createCachedObjectStructure__];
-            
-            _downloadTimer = [NSTimer timerWithTimeInterval:GL_TIMER_INTERVAL
-                                                     target:self
-                                                   selector:@selector(__timerJob__:)
-                                                   userInfo:nil
-                                                    repeats:YES];
-            [[NSRunLoop currentRunLoop] addTimer:_downloadTimer forMode:NSDefaultRunLoopMode];
-            
-            _lockMutex = [[NSObject alloc] init];
-            _grabberObjects = [[NSMutableDictionary alloc] initWithCapacity:5];
             
             if (![[NSFileManager defaultManager] fileExistsAtPath:GK_PATH_TO_STORAGE]) {
                 
@@ -110,7 +101,23 @@ void (^GrabberServiceBlock_500PX) ();
                                                            attributes:nil
                                                                 error:nil];
             }
+            
+        } else {
+            NSInteger currentCacheSize = [[_cacheingObject objectForKey:GK_TOTAL_OBJECTS_SIZE_KEY] integerValue];
+            if (currentCacheSize > 0) {
+                _nextCacheIndex = 0;
+            }
         }
+        
+        _downloadTimer = [NSTimer timerWithTimeInterval:GL_TIMER_INTERVAL
+                                                 target:self
+                                               selector:@selector(__timerJob__:)
+                                               userInfo:nil
+                                                repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_downloadTimer forMode:NSDefaultRunLoopMode];
+        
+        _lockMutex = [[NSObject alloc] init];
+        _grabberObjects = [[NSMutableDictionary alloc] initWithCapacity:5];
         
         [self __implementGrabberBlocks__];
         
@@ -323,18 +330,18 @@ void (^GrabberServiceBlock_500PX) ();
     }
     
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,
-                                             (unsigned long)NULL), ^{
-        for (int i = 100; i > 0; i--) {
-            sleep(10);
-            UIImage * img = [[GKCachingObject instance] getCachedImage];
-            if (img) {
-                NSLog(@"image from cache received");
-            } else {
-                NSLog(@"image from cache was not received");
-            }
-        }
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,
+//                                             (unsigned long)NULL), ^{
+//        for (int i = 100; i > 0; i--) {
+//            sleep(10);
+//            UIImage * img = [[GKCachingObject instance] getCachedImage];
+//            if (img) {
+//                NSLog(@"image from cache received");
+//            } else {
+//                NSLog(@"image from cache was not received");
+//            }
+//        }
+//    });
 }
 
 - (void) removeGrabbingService: (GK_IMAGE_SERVICE_TYPE) serviceName {
@@ -454,8 +461,10 @@ void (^GrabberServiceBlock_500PX) ();
             
             _nextCacheIndex++;
         } else {
-            NSLog(@"problem during receiving image from cache, nextCacheIndex is %d and objects in cache count %d", _nextCacheIndex, [cache count]);
+            NSLog(@"problem during receiving image from cache, nextCacheIndex is %d and objects", _nextCacheIndex);
         }
+        
+        NSLog(@"cache count %d", [cache count]);
     }
     
     return image;
