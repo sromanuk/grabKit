@@ -10,8 +10,8 @@
 #import "OAuthCore.h"
 #import "OAuth+Additions.h"
 
-#define PXAPI_CONSUMER_KEY @""
-#define PXAPI_CONSUMER_SECRET @""
+#define PXAPI_CONSUMER_KEY @"TXzyGq7SaUOz0rUqGiIeiBxbWRHDGqMIPKEVFgvK"
+#define PXAPI_CONSUMER_SECRET @"2jPMHS6eDtGimaQgG2KVQZlxiD67otpiUjeHZMOx"
 
 @implementation PXAPIHelper
 {
