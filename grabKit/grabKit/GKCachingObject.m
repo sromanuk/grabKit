@@ -52,7 +52,7 @@ static const NSString * GK_MAXIMUM_OBJECTS_SIZE_KEY = @"maximum object's size";
 static const NSString * GK_CACHED_OBJECTS_KEY = @"cached objects";
 static const NSInteger  GK_MAXIMUM_OBJECTS_SIZE_VALUE = 150 * 1024 * 1024; // 150Mb for cache size should be enough. For now.
 
-static const NSUInteger kNumberOfElementsPerPage = 5;
+static const NSUInteger kNumberOfElementsPerPage = 10;
 
 
 static NSObject * _lockMutex = nil;
@@ -371,13 +371,13 @@ void (^GrabberServiceBlock_500PX) ();
     }
     NSLog(@"Adding image from URL and URL is %@", [url absoluteString]);
     
-    @synchronized(self) {
-        NSInteger currentCacheSize = [[_cacheingObject objectForKey:GK_TOTAL_OBJECTS_SIZE_KEY] integerValue];
-        if (currentCacheSize >= GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
-            NSLog(@"cache is full");
-            return NO;
-        }
-    }
+//    @synchronized(self) {
+//        NSInteger currentCacheSize = [[_cacheingObject objectForKey:GK_TOTAL_OBJECTS_SIZE_KEY] integerValue];
+//        if (currentCacheSize >= GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
+//            NSLog(@"cache is full");
+//            return NO;
+//        }
+//    }
     
     NSURLRequest * theRequest = [NSURLRequest requestWithURL:url
                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -392,15 +392,14 @@ void (^GrabberServiceBlock_500PX) ();
             NSString * pngPath = [GK_PATH_TO_STORAGE stringByAppendingPathComponent:filename];
             
             UIImage * receivedImage = [UIImage imageWithData:data];
-            [UIImagePNGRepresentation(receivedImage) writeToFile:pngPath atomically:NO];
             
             if (receivedImage == nil) NSLog(@"received image was nil!");
             
             @synchronized(self) {
                 NSInteger currentCacheSize = [[_cacheingObject objectForKey:GK_TOTAL_OBJECTS_SIZE_KEY] integerValue];
-                NSLog(@"currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d", currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
+//                NSLog(@"currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d", currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
                 
-                if (currentCacheSize + [data length] > GK_MAXIMUM_OBJECTS_SIZE_VALUE && _nextCacheIndex != GK_CACHE_EMPTY) {
+                if (currentCacheSize + [data length] > GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
                     
                     NSString * path = [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] objectAtIndex:0];
                     
@@ -410,8 +409,12 @@ void (^GrabberServiceBlock_500PX) ();
                     if (currentCacheSize > fileSize) currentCacheSize -= fileSize;
                     [_cacheingObject setObject:[NSNumber numberWithInteger:currentCacheSize] forKey:GK_TOTAL_OBJECTS_SIZE_KEY];
                     
-                    [[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
-                    NSLog (@"removed file at path %@", path);
+//                    NSError * error = [[NSError alloc] init];
+                    BOOL result = [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+                    NSLog (@"removing file at path %@ (removing status is %@)", path, result ? @"YES" : @"NO");
+                    
+                    result = [[NSFileManager defaultManager] fileExistsAtPath:path];
+                    NSLog(@"file was removed and it's existence on the file system status is %@", result ? @"YES" : @"NO");
                     
                     [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] removeObjectAtIndex:0];
                     
@@ -419,17 +422,25 @@ void (^GrabberServiceBlock_500PX) ();
                 }
                 
                 if (currentCacheSize + [data length] < GK_MAXIMUM_OBJECTS_SIZE_VALUE) {
-                    NSLog(@"cleaning was probably done. currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d",
-                          currentCacheSize, [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
+                    [UIImagePNGRepresentation(receivedImage) writeToFile:pngPath atomically:NO];
+                    
+                    NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:pngPath error:nil];
+                    unsigned long long fileSize = [data length];
+                    if ([fileAttributes fileSize] > 0) {
+                        fileSize = [fileAttributes fileSize];
+                    }
                     
                     [[_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY] addObject:pngPath];
-                    [_cacheingObject setObject:[NSNumber numberWithInteger:currentCacheSize + [data length]]
+                    [_cacheingObject setObject:[NSNumber numberWithInteger:currentCacheSize + fileSize]
                                         forKey:GK_TOTAL_OBJECTS_SIZE_KEY];
                     
                     [_cacheingObject writeToFile:GK_PATH_TO_STORAGE_FILE atomically:NO];
                     
-                    if (_nextCacheIndex == GK_CACHE_EMPTY) _nextCacheIndex = 0;
+                    if (_nextCacheIndex <= GK_CACHE_EMPTY) _nextCacheIndex = 0;
                 }
+                
+                NSLog(@"currentCacheSize = %d, data length = %d, GK_MAXIMUM_OBJECTS_SIZE_VALUE = %d",
+                      [[_cacheingObject objectForKey:GK_TOTAL_OBJECTS_SIZE_KEY] integerValue], [data length], GK_MAXIMUM_OBJECTS_SIZE_VALUE);
                 // if cache is full we should set timer interval to the greater value.
                 // it does not seems like possible, so we should re-create the timer.
                 // in this case it would be probably a better solution to create another
@@ -454,12 +465,28 @@ void (^GrabberServiceBlock_500PX) ();
     @synchronized(self) {
         NSArray * cache = [_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY];
         
-        if ([cache count] > _nextCacheIndex && [cache count] > 0) {
-            NSString * path = [cache objectAtIndex:_nextCacheIndex];
-            image = [[UIImage alloc] initWithContentsOfFile:path];
-            NSLog(@"path to cached image is %@, image is %@", path, image);
+        if ([cache count] > 0) {
+            NSString * path = nil;
+            if ([cache count] > _nextCacheIndex + 1) {
+                if (_nextCacheIndex > [cache count] - 1 && _nextCacheIndex > 0) _nextCacheIndex--;
+                if (_nextCacheIndex < 0) _nextCacheIndex = 0;
+                path = [cache objectAtIndex:_nextCacheIndex];
+                
+                _nextCacheIndex++;
+            } else {
+                int num = rand() % [cache count];
+                if (num > ([cache count] - 10) && [cache count] > 30) {
+                    num = rand() % 20 + 10;
+                }
+                
+                if (num > [cache count] - 1 && num > 0) num--;
+                if (num < 0) num = 0;
+                path = [cache objectAtIndex:num];
+            }
             
-            _nextCacheIndex++;
+            if (path != nil) image = [[UIImage alloc] initWithContentsOfFile:path];
+            NSLog(@"path to cached image is %@, image is %@", path, image == nil ? @"nil" : @"not nil");
+            
         } else {
             NSLog(@"problem during receiving image from cache, nextCacheIndex is %d and objects", _nextCacheIndex);
         }
