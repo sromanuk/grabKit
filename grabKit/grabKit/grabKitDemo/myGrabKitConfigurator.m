@@ -32,7 +32,7 @@
 // Facebook - https://developers.facebook.com/apps
 
 - (NSString*)facebookAppId {
-	return @"350975928312519";
+	return @"385201648221818";
 }
 
 
@@ -40,15 +40,15 @@
 // Flickr - http://www.flickr.com/services/apps/create/apply/
 
 - (NSString*)flickrApiKey {
-    return @"482aefe9c03f2b3a0f8e105f2235e0b7";
+    return @"bc85cf92f26ee62793f0b18786a4a7f9";
 }
 
 - (NSString*)flickrApiSecret {
-    return @"3201234b3967e37d";
+    return @"34cec929af30f64e";
 }
 
 - (NSString*)flickrRedirectUri{
-    return @"grabkitdemoappflickr://";
+    return @"uniframeflickr://";
 }
 
 

@@ -97,7 +97,8 @@
 #pragma mark OFFlickrAPIRequestDelegate methods
 
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didCompleteWithResponse:(NSDictionary *)inResponseDictionary {
-	
+	NSLog(@"flickr request finished with response: %@", inResponseDictionary);
+    
 	if (handlingBlock != nil ){
         @synchronized(self) {
 	        handlingBlock(self, inResponseDictionary);
@@ -107,6 +108,8 @@
 }
 
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didFailWithError:(NSError *)error {
+    
+    NSLog(@"flickr request finished with error: %@", [error description]);
     
 	if ( errorBlock != nil ){
         @synchronized(self) {

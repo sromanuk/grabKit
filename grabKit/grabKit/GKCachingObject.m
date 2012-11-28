@@ -66,6 +66,8 @@ void (^GrabberServiceBlock_Flickr) ();
 void (^GrabberServiceBlock_Picasa) ();
 void (^GrabberServiceBlock_500PX) ();
 
+void (^InternetProblemBlock) ();
+
 
 
 + (GKCachingObject *) instance {
@@ -154,6 +156,12 @@ void (^GrabberServiceBlock_500PX) ();
     };
 }
 
+- (void) setInternetProblemsBlock: (void (^)()) _block {
+    if (_block != nil) {
+        InternetProblemBlock = _block;
+    }
+}
+
 - (void) __load500pxPhotos__ {
     static NSInteger pageNumber = 1;
     
@@ -166,7 +174,7 @@ void (^GrabberServiceBlock_500PX) ();
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:_downloadsOperationQueue
                            completionHandler:^(NSURLResponse * response, NSData * data, NSError * error) {
-                               NSLog(@"error is %@", error);
+//                               NSLog(@"error is %@", error);
                                
                                NSString * responseData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; // JSON object
                                
@@ -495,6 +503,17 @@ void (^GrabberServiceBlock_500PX) ();
     }
     
     return image;
+}
+
+- (BOOL) hasCachedImages {
+    NSArray * cache = nil;
+    
+    @synchronized(self) {
+        cache = [_cacheingObject objectForKey:GK_CACHED_OBJECTS_KEY];
+    }
+    
+    return (cache != nil && [cache count] > 0);
+            
 }
 
 - (NSArray *) getArrayOfCachedImages: (NSUInteger) count {

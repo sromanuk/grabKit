@@ -188,6 +188,7 @@
     albumsQuery = [GRKFlickrQuery queryWithMethod:@"flickr.photosets.getList"
                                  andParams:params
                          withHandlingBlock:^(GRKFlickrQuery * query, id result){
+                             NSLog(@"handling flickr response");
                              
                              if ( ! [self isResultForAlbumsInTheExpectedFormat:result]){
                                  if ( errorBlock != nil ){
@@ -209,6 +210,8 @@
                              // handle each album data to build a NSMutableDictionary of GRKAlbum objects
                              
                              NSArray * rawAlbums = [[(NSDictionary *)result objectForKey:@"photosets"] objectForKey:@"photoset"];
+                             NSLog(@"flickr albums count is %d", [rawAlbums count]);
+                             
                              NSMutableArray * albums = [NSMutableArray arrayWithCapacity:[rawAlbums count]];
                              
                              for( NSDictionary * rawAlbum in rawAlbums ){
@@ -230,6 +233,7 @@
                              
                              
                          }andErrorBlock:^(NSError * error){
+                             NSLog(@"handling flickr error %@", [error description]);
                              
                              if ( errorBlock != nil ){
                                  NSError * GRKError = [self errorForAlbumsOperationWithOriginalError:error];

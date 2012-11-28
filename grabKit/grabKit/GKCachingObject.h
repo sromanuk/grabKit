@@ -45,5 +45,6 @@ typedef enum GK_IMAGE_SERVICE GK_IMAGE_SERVICE_TYPE;
 
 - (void) addGrabbingService: (GK_IMAGE_SERVICE_TYPE) serviceName;
 - (void) removeGrabbingService: (GK_IMAGE_SERVICE_TYPE) serviceName;
+- (BOOL) hasCachedImages;
 
 @end
